@@ -1,0 +1,3447 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POLARIS — Smart Mobility Albania</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --black:#070707;
+  --black2:#101010;
+  --orange:#b84a13;
+  --orange2:#e06a25;
+  --light:#f3eee8;
+  --gray:#a5a5a5;
+  --line:rgba(255,255,255,.09);
+
+  --green:#25d366;
+  --green-dark:#128c7e;
+  --green-deep:#075e54;
+
+  --chat-white:#f7f9f8;
+  --chat-text:#18221e;
+  --chat-muted:#748078;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:var(--black);
+  color:var(--light);
+  line-height:1.6;
+}
+
+body.chat-open{
+  overflow:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+img,
+video{
+  max-width:100%;
+  display:block;
+}
+
+button,
+textarea,
+input{
+  font-family:inherit;
+}
+
+button{
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* =========================
+   WEBSITE
+========================= */
+
+.container{
+  width:min(1160px,92%);
+  margin:auto;
+}
+
+nav{
+  position:fixed;
+  z-index:1000;
+  top:0;
+  left:0;
+  width:100%;
+  background:rgba(7,7,7,.84);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+.navin{
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:4px;
+}
+
+.logo span{
+  color:var(--orange2);
+}
+
+.navlinks{
+  display:flex;
+  gap:28px;
+  font-size:13px;
+  font-weight:700;
+  text-transform:uppercase;
+}
+
+.navlinks a:hover{
+  color:var(--orange2);
+}
+
+section{
+  padding:105px 0;
+}
+
+.eyebrow{
+  color:var(--orange2);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.section-title{
+  font-size:clamp(34px,5vw,60px);
+  line-height:1;
+  letter-spacing:-2px;
+  font-weight:900;
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding-top:120px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7,7,7,.96),
+      rgba(7,7,7,.68),
+      rgba(7,7,7,.25)
+    ),
+    url("polaris.jpg") center/cover;
+  opacity:.8;
+  z-index:-1;
+}
+
+h1{
+  font-size:clamp(54px,9vw,112px);
+  line-height:.9;
+  letter-spacing:-5px;
+  font-weight:900;
+  max-width:800px;
+}
+
+h1 span{
+  color:var(--orange2);
+}
+
+.hero p{
+  max-width:620px;
+  color:#d0cbc5;
+  font-size:18px;
+  margin:28px 0;
+}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 22px;
+  border:1px solid var(--orange2);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:.2s;
+}
+
+.btn.primary{
+  background:var(--orange2);
+  color:white;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  opacity:.9;
+}
+
+.intro{
+  text-align:center;
+  background:var(--light);
+  color:var(--black);
+}
+
+.intro p{
+  max-width:750px;
+  margin:22px auto;
+  color:#555;
+}
+
+.darkgrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);
+  margin-top:55px;
+}
+
+.card{
+  padding:34px 25px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.num{
+  color:var(--orange2);
+  font-weight:900;
+  font-size:13px;
+  margin-bottom:45px;
+}
+
+.card h3{
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:var(--gray);
+  font-size:14px;
+}
+
+.product{
+  background:#0d0d0d;
+}
+
+.productgrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.product img{
+  width:100%;
+  max-height:650px;
+  object-fit:cover;
+}
+
+.specs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  margin-top:28px;
+  border-top:1px solid var(--line);
+}
+
+.spec{
+  padding:18px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.spec b{
+  display:block;
+  color:var(--orange2);
+  font-size:12px;
+}
+
+.spec span{
+  font-size:14px;
+  color:#ccc;
+}
+
+.mission{
+  background:var(--orange);
+  color:white;
+}
+
+.mission p{
+  max-width:800px;
+  font-size:20px;
+  margin-top:25px;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:45px;
+}
+
+.step{
+  border:1px solid var(--line);
+  padding:30px;
+}
+
+.step strong{
+  font-size:40px;
+  color:var(--orange2);
+}
+
+.step h3{
+  margin:12px 0;
+}
+
+.step p{
+  color:var(--gray);
+}
+
+.order{
+  text-align:center;
+  background:var(--light);
+  color:var(--black);
+}
+
+.price{
+  font-size:64px;
+  font-weight:900;
+  margin:20px 0;
+}
+
+.contact{
+  background:#0d0d0d;
+}
+
+.contactbox{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  align-items:center;
+}
+
+.contact p{
+  color:var(--gray);
+  margin-top:12px;
+}
+
+footer{
+  padding:28px 0;
+  border-top:1px solid var(--line);
+  color:#777;
+  font-size:12px;
+}
+
+footer .container{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+/* =========================================================
+   POLARIS CHAT
+========================================================= */
+
+.chat-launch{
+  position:fixed;
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+
+  z-index:10000;
+
+  height:58px;
+  min-width:108px;
+
+  border:0;
+  border-radius:0 18px 18px 0;
+
+  background:linear-gradient(
+    135deg,
+    #25d366,
+    #128c7e
+  );
+
+  color:white;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+
+  cursor:pointer;
+
+  box-shadow:5px 8px 30px rgba(0,0,0,.35);
+
+  transition:.25s;
+}
+
+.chat-launch:hover{
+  min-width:122px;
+  box-shadow:8px 10px 35px rgba(0,0,0,.45);
+}
+
+.chat-launch svg{
+  width:22px;
+  height:22px;
+  fill:white;
+}
+
+.chat-launch span{
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1.5px;
+}
+
+body.chat-open .chat-launch{
+  display:none !important;
+}
+
+/* CHAT PANEL */
+
+.chat-panel{
+  position:fixed;
+  inset:0;
+
+  z-index:9999;
+
+  width:100%;
+  height:100%;
+
+  display:none;
+  flex-direction:column;
+
+  background:#075e54;
+
+  overflow:hidden;
+}
+
+.chat-panel.open{
+  display:flex;
+}
+
+.chat-app{
+  width:100%;
+  height:100%;
+
+  display:flex;
+  flex-direction:column;
+
+  background:#075e54;
+
+  overflow:hidden;
+}
+
+/* HEADER */
+
+.chat-head{
+  min-height:78px;
+
+  padding:0 24px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  background:#075e54;
+
+  color:white;
+
+  box-shadow:0 3px 20px rgba(0,0,0,.18);
+
+  flex-shrink:0;
+}
+
+.chat-brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.chat-brand-icon{
+  width:45px;
+  height:45px;
+
+  border-radius:50%;
+
+  background:rgba(255,255,255,.16);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.chat-brand-icon svg{
+  width:25px;
+  height:25px;
+  fill:white;
+}
+
+.chat-title b{
+  display:block;
+  font-size:15px;
+  letter-spacing:.8px;
+}
+
+.chat-title span{
+  display:block;
+  font-size:11px;
+  opacity:.78;
+  margin-top:1px;
+}
+
+.head-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.iconbtn{
+  width:42px;
+  height:42px;
+
+  border:0;
+  border-radius:50%;
+
+  background:rgba(255,255,255,.12);
+
+  color:white;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
+
+  transition:.2s;
+}
+
+.iconbtn:hover{
+  background:rgba(255,255,255,.23);
+}
+
+.iconbtn svg{
+  width:20px;
+  height:20px;
+
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+}
+
+/* ADMIN */
+
+.adminbar{
+  display:none;
+
+  min-height:43px;
+
+  padding:8px 18px;
+
+  background:#e7f8ee;
+  color:#17663e;
+
+  border-bottom:1px solid #c9ead7;
+
+  font-size:11px;
+
+  align-items:center;
+  justify-content:space-between;
+
+  flex-shrink:0;
+}
+
+.adminbar.active{
+  display:flex;
+}
+
+.adminbar button{
+  border:0;
+  background:#d9f1e3;
+  color:#17663e;
+
+  padding:7px 12px;
+
+  border-radius:8px;
+
+  font-size:10px;
+  font-weight:800;
+
+  cursor:pointer;
+}
+
+/* CHAT BODY */
+
+.chat-body{
+  position:relative;
+
+  flex:1;
+  min-height:0;
+
+  display:flex;
+
+  overflow:hidden;
+}
+
+/* =========================================================
+   NEW PREMIUM CHAT BACKGROUND
+========================================================= */
+
+.messages{
+  flex:1;
+
+  overflow-y:auto;
+
+  padding:30px clamp(18px,5vw,70px);
+
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+
+  background-color:#d9fdd3;
+
+  /*
+    Vendos foton "chat-wallpaper.jpg" në të njëjtin folder me index.html.
+    Nëse fotoja mungon, ngjyra #d9fdd3 më sipër vazhdon të funksionojë
+    si sfond rezervë.
+
+    SHËNIM: "background-attachment:fixed" brenda një elementi që bën
+    scroll (si ky) shpesh NUK funksionon në telefona (Safari/iOS,
+    disa versione Chrome mobile) — fotoja thjesht zhduket. Prandaj
+    këtu përdoret "scroll" në vend të "fixed".
+  */
+
+  background-image:
+    linear-gradient(
+      rgba(217,253,211,.15),
+      rgba(217,253,211,.15)
+    ),
+    url("chat-wallpaper.jpg");
+
+  background-size:
+    cover,
+    cover;
+
+  background-position:
+    center,
+    center;
+
+  background-repeat:
+    no-repeat,
+    no-repeat;
+
+  background-attachment:
+    scroll,
+    scroll;
+
+  scroll-behavior:smooth;
+}
+
+.messages::-webkit-scrollbar{
+  width:7px;
+}
+
+.messages::-webkit-scrollbar-thumb{
+  background:rgba(7,94,84,.25);
+  border-radius:20px;
+}
+
+/* WELCOME */
+
+.chat-welcome{
+  align-self:center;
+
+  max-width:520px;
+
+  margin:15px auto 25px;
+
+  padding:14px 18px;
+
+  border-radius:14px;
+
+  background:rgba(255,255,255,.84);
+
+  color:#5b665f;
+
+  text-align:center;
+
+  font-size:12px;
+
+  box-shadow:0 5px 18px rgba(0,0,0,.10);
+
+  backdrop-filter:blur(10px);
+}
+
+.chat-welcome strong{
+  color:var(--green-dark);
+}
+
+/* MESSAGE */
+
+.msg{
+  width:fit-content;
+  max-width:min(620px,78%);
+
+  padding:8px 11px 7px;
+
+  background:#fff;
+
+  color:var(--chat-text);
+
+  align-self:flex-start;
+
+  border-radius:4px 14px 14px 14px;
+
+  box-shadow:0 1px 2px rgba(0,0,0,.12);
+
+  animation:messageIn .2s ease;
+
+  position:relative;
+
+  overflow-wrap:anywhere;
+
+  /*
+    Kjo lejon long-press në telefon,
+    por ruan scroll-in normal.
+  */
+
+  touch-action:pan-y;
+
+  -webkit-user-select:none;
+  user-select:none;
+
+  -webkit-touch-callout:none;
+}
+
+.msg.long-press-active{
+  touch-action:none;
+}
+
+.msg .text,
+.msg .meta,
+.msg a,
+.msg audio,
+.msg video{
+  -webkit-user-select:text;
+  user-select:text;
+}
+
+@keyframes messageIn{
+  from{
+    opacity:0;
+    transform:translateY(5px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.msg.mine{
+  align-self:flex-end;
+  background:#dcf8c6;
+  border-radius:14px 4px 14px 14px;
+}
+
+.msg.admin{
+  background:#c9f7d8;
+}
+
+.msg .meta{
+  font-size:9px;
+  color:#718078;
+  margin-bottom:3px;
+  font-weight:600;
+  line-height:1.25;
+}
+
+.msg.admin .meta{
+  color:#128c60;
+  font-weight:800;
+}
+
+.msg .text{
+  font-size:14px;
+  line-height:1.45;
+  white-space:pre-wrap;
+  word-break:break-word;
+}
+
+.delete-msg{
+  float:right;
+
+  margin-left:10px;
+
+  border:0;
+  background:none;
+
+  color:#d9534f;
+
+  cursor:pointer;
+
+  font-size:9px;
+  font-weight:700;
+
+  -webkit-user-select:none;
+  user-select:none;
+}
+
+.sent-status{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:2px;
+
+  margin-top:4px;
+
+  text-align:right;
+
+  font-size:6.5px;
+  letter-spacing:.2px;
+  text-transform:uppercase;
+
+  color:#6c8879;
+
+  font-weight:700;
+}
+
+.sent-status svg{
+  width:10px;
+  height:10px;
+
+  fill:none;
+  stroke:#8fa79c;
+  stroke-width:2.6;
+}
+
+.sent-status.seen svg{
+  stroke:#34b7f1;
+}
+
+/* =========================================================
+   LONG PRESS CONTEXT MENU
+========================================================= */
+
+.message-context{
+  position:fixed;
+
+  z-index:15000;
+
+  display:none;
+
+  width:min(245px,calc(100vw - 30px));
+
+  background:#fff;
+
+  color:#18221e;
+
+  border:1px solid rgba(0,0,0,.08);
+
+  border-radius:17px;
+
+  box-shadow:
+    0 22px 65px rgba(0,0,0,.28);
+
+  padding:7px;
+
+  overflow:hidden;
+}
+
+.message-context.show{
+  display:block;
+
+  animation:contextIn .16s ease;
+}
+
+@keyframes contextIn{
+  from{
+    opacity:0;
+    transform:translateY(5px) scale(.97);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.message-context button{
+  width:100%;
+
+  border:0;
+
+  background:transparent;
+
+  text-align:left;
+
+  padding:13px 14px;
+
+  border-radius:11px;
+
+  font:600 14px Inter,sans-serif;
+
+  cursor:pointer;
+
+  transition:.15s;
+}
+
+.message-context button:hover{
+  background:#f3f6f4;
+}
+
+.message-context .danger{
+  color:#d92d20;
+  font-weight:800;
+}
+
+.message-context .danger:hover{
+  background:#fff1ef;
+}
+
+.message-context .cancel{
+  color:#66736c;
+}
+
+/* MEDIA */
+
+.message-media{
+  margin-top:6px;
+
+  overflow:hidden;
+
+  border-radius:10px;
+
+  background:#edf4ef;
+
+  max-width:min(380px,72vw);
+}
+
+.message-media img,
+.message-media video{
+  width:100%;
+  height:auto;
+
+  max-height:430px;
+
+  object-fit:cover;
+}
+
+.message-media video{
+  background:#000;
+}
+
+/* AUDIO */
+
+.voice-message{
+  margin-top:5px;
+
+  width:min(330px,65vw);
+
+  background:rgba(255,255,255,.65);
+
+  border-radius:12px;
+
+  padding:5px;
+}
+
+.voice-message audio{
+  display:block;
+  width:100%;
+  height:38px;
+}
+
+/* TYPING */
+
+.typing-wrap{
+  display:none;
+
+  align-self:flex-start;
+
+  margin:2px 0 8px;
+}
+
+.typing-wrap.show{
+  display:block;
+}
+
+.typing-bubble{
+  background:white;
+
+  border-radius:4px 17px 17px 17px;
+
+  padding:10px 13px;
+
+  box-shadow:0 2px 10px rgba(25,55,42,.07);
+
+  display:flex;
+  gap:4px;
+  align-items:center;
+}
+
+.typing-dot{
+  width:6px;
+  height:6px;
+
+  border-radius:50%;
+
+  background:#80938a;
+
+  animation:typing 1.2s infinite;
+}
+
+.typing-dot:nth-child(2){
+  animation-delay:.15s;
+}
+
+.typing-dot:nth-child(3){
+  animation-delay:.3s;
+}
+
+@keyframes typing{
+  0%,60%,100%{
+    transform:translateY(0);
+    opacity:.45;
+  }
+
+  30%{
+    transform:translateY(-4px);
+    opacity:1;
+  }
+}
+
+/* COMPOSER */
+
+.chat-compose{
+  padding:10px 18px 15px;
+
+  background:#f0f5f2;
+
+  border-top:1px solid rgba(20,80,55,.09);
+
+  box-shadow:0 -5px 20px rgba(0,0,0,.08);
+
+  flex-shrink:0;
+
+  position:relative;
+}
+
+.identity{
+  font-size:10px;
+
+  color:#748078;
+
+  margin-bottom:7px;
+
+  padding-left:5px;
+}
+
+.identity strong{
+  color:#128c60;
+}
+
+.compose-row{
+  display:flex;
+
+  gap:7px;
+
+  align-items:flex-end;
+}
+
+/* COMPOSER BUTTONS */
+
+.attach,
+.mic-btn,
+.emoji-btn,
+.send{
+  width:47px;
+  height:47px;
+
+  flex-shrink:0;
+
+  border:0;
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
+
+  transition:.2s;
+}
+
+.attach{
+  background:white;
+  color:#128c7e;
+
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.attach:hover{
+  background:#e8f8ee;
+  transform:scale(1.05);
+}
+
+.attach svg,
+.mic-btn svg{
+  width:22px;
+  height:22px;
+
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+}
+
+.mic-btn{
+  background:white;
+  color:#128c7e;
+
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+  touch-action:none;
+
+  user-select:none;
+  -webkit-user-select:none;
+}
+
+.mic-btn:hover{
+  background:#e8f8ee;
+}
+
+.mic-btn.recording{
+  background:#e53935;
+  color:white;
+
+  transform:scale(1.08);
+
+  box-shadow:
+    0 0 0 8px rgba(229,57,53,.14),
+    0 5px 20px rgba(229,57,53,.35);
+}
+
+.emoji-btn{
+  background:white;
+  color:#128c7e;
+
+  font-size:21px;
+
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.emoji-btn:hover{
+  background:#e8f8ee;
+  transform:scale(1.05);
+}
+
+.send{
+  background:var(--green);
+  color:white;
+
+  box-shadow:0 5px 15px rgba(37,211,102,.24);
+}
+
+.send:hover{
+  transform:scale(1.05);
+}
+
+.send:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+  transform:none;
+}
+
+.send svg{
+  width:20px;
+  height:20px;
+
+  fill:none;
+  stroke:white;
+  stroke-width:2;
+}
+
+.file-input{
+  display:none;
+}
+
+/* TEXT INPUT */
+
+.compose-row textarea{
+  flex:1;
+
+  resize:none;
+
+  min-height:46px;
+  max-height:130px;
+
+  background:white;
+
+  border:1px solid #dfe8e3;
+
+  border-radius:22px;
+
+  color:#18221e;
+
+  padding:13px 16px;
+
+  font-size:13px;
+
+  outline:none;
+
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+
+  transition:.2s;
+}
+
+.compose-row textarea:focus{
+  border-color:#78cda2;
+
+  box-shadow:
+    0 0 0 3px rgba(37,211,102,.09);
+}
+
+.compose-row textarea::placeholder{
+  color:#9aa69f;
+}
+
+/* MEDIA PREVIEW */
+
+.media-preview{
+  display:none;
+
+  margin:0 0 8px 5px;
+
+  width:max-content;
+  max-width:100%;
+
+  position:relative;
+
+  padding:6px;
+
+  background:white;
+
+  border-radius:12px;
+
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.media-preview.show{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.media-preview img,
+.media-preview video{
+  width:75px;
+  height:58px;
+
+  object-fit:cover;
+
+  border-radius:8px;
+
+  background:#111;
+}
+
+.media-preview-info{
+  max-width:180px;
+
+  font-size:10px;
+  color:#526159;
+}
+
+.media-preview-info strong{
+  display:block;
+
+  color:#128c60;
+
+  font-size:10px;
+
+  margin-bottom:2px;
+}
+
+.remove-media{
+  position:absolute;
+
+  right:-7px;
+  top:-7px;
+
+  width:22px;
+  height:22px;
+
+  border:0;
+
+  border-radius:50%;
+
+  background:#e74c3c;
+
+  color:white;
+
+  font-size:14px;
+
+  line-height:22px;
+
+  cursor:pointer;
+}
+
+/* RECORDING BAR */
+
+.recording-bar{
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:9px;
+
+  margin-bottom:8px;
+
+  padding:8px 12px;
+
+  background:#fff1f1;
+
+  border:1px solid #ffd0d0;
+
+  border-radius:12px;
+
+  color:#c62828;
+
+  font-size:11px;
+
+  font-weight:800;
+}
+
+.recording-bar.show{
+  display:flex;
+}
+
+.recording-dot{
+  width:9px;
+  height:9px;
+
+  border-radius:50%;
+
+  background:#e53935;
+
+  animation:recordPulse 1s infinite;
+}
+
+@keyframes recordPulse{
+  0%,100%{
+    opacity:.4;
+    transform:scale(.9);
+  }
+
+  50%{
+    opacity:1;
+    transform:scale(1.15);
+  }
+}
+
+/* EMOJI PICKER */
+
+.emoji-picker{
+  display:none;
+
+  position:absolute;
+
+  left:18px;
+  bottom:88px;
+
+  width:min(380px,calc(100% - 36px));
+
+  max-height:280px;
+
+  padding:10px;
+
+  background:white;
+
+  border-radius:16px;
+
+  box-shadow:0 20px 60px rgba(0,0,0,.22);
+
+  z-index:50;
+
+  overflow-y:auto;
+
+  grid-template-columns:repeat(10,1fr);
+
+  gap:3px;
+}
+
+.emoji-picker.show{
+  display:grid;
+}
+
+.emoji{
+  width:100%;
+
+  aspect-ratio:1;
+
+  border:0;
+
+  background:none;
+
+  border-radius:8px;
+
+  font-size:22px;
+
+  cursor:pointer;
+}
+
+.emoji:hover{
+  background:#edf8f1;
+}
+
+/* MENU */
+
+.chat-menu{
+  position:absolute;
+
+  top:67px;
+  right:20px;
+
+  width:min(330px,calc(100% - 40px));
+
+  background:white;
+
+  border-radius:18px;
+
+  box-shadow:0 20px 60px rgba(0,0,0,.22);
+
+  padding:8px;
+
+  display:none;
+
+  z-index:100;
+
+  animation:menuIn .2s ease;
+}
+
+.chat-menu.show{
+  display:block;
+}
+
+@keyframes menuIn{
+  from{
+    opacity:0;
+    transform:translateY(-7px) scale(.98);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.menu-title{
+  padding:13px 14px 8px;
+
+  font-size:11px;
+
+  color:#8a968f;
+
+  font-weight:800;
+
+  text-transform:uppercase;
+
+  letter-spacing:1px;
+}
+
+.menu-item{
+  width:100%;
+
+  display:flex;
+  align-items:center;
+
+  gap:12px;
+
+  border:0;
+  background:none;
+
+  padding:13px 14px;
+
+  border-radius:12px;
+
+  color:#1b2721;
+
+  text-align:left;
+
+  cursor:pointer;
+}
+
+.menu-item:hover{
+  background:#edf8f1;
+}
+
+.menu-item svg{
+  width:21px;
+  height:21px;
+
+  fill:none;
+  stroke:#128c60;
+  stroke-width:2;
+}
+
+.menu-item strong{
+  display:block;
+  font-size:13px;
+}
+
+.menu-item small{
+  display:block;
+
+  color:#859089;
+
+  font-size:10px;
+
+  margin-top:2px;
+}
+
+/* MODALS */
+
+.modal{
+  position:fixed;
+
+  inset:0;
+
+  z-index:12000;
+
+  background:rgba(0,0,0,.65);
+
+  backdrop-filter:blur(10px);
+
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modalbox{
+  width:min(420px,100%);
+
+  background:#fff;
+
+  color:#18221e;
+
+  border-radius:22px;
+
+  padding:28px;
+
+  box-shadow:0 30px 90px rgba(0,0,0,.35);
+
+  animation:modalIn .25s ease;
+}
+
+@keyframes modalIn{
+  from{
+    opacity:0;
+    transform:translateY(15px) scale(.98);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.modal-logo{
+  width:48px;
+  height:48px;
+
+  border-radius:50%;
+
+  background:#e8f9ef;
+
+  color:#128c60;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:15px;
+}
+
+.modal-logo svg{
+  width:24px;
+  height:24px;
+}
+
+.modalbox h3{
+  font-size:21px;
+  margin-bottom:6px;
+}
+
+.modalbox p{
+  font-size:12px;
+
+  color:#758078;
+
+  margin-bottom:20px;
+}
+
+.modalbox label{
+  display:block;
+
+  font-size:10px;
+
+  font-weight:800;
+
+  color:#68736d;
+
+  margin:13px 0 6px;
+
+  text-transform:uppercase;
+}
+
+.modalbox input{
+  width:100%;
+
+  padding:13px 14px;
+
+  background:#f6f8f7;
+
+  border:1px solid #dce5df;
+
+  border-radius:11px;
+
+  color:#18221e;
+
+  outline:none;
+}
+
+.modalbox input:focus{
+  border-color:#6ac395;
+
+  box-shadow:0 0 0 3px rgba(37,211,102,.08);
+}
+
+.modal-actions{
+  display:flex;
+
+  gap:9px;
+
+  margin-top:20px;
+}
+
+.modal-actions button{
+  flex:1;
+
+  padding:12px;
+
+  border:0;
+
+  border-radius:11px;
+
+  background:#edf2ef;
+
+  color:#26332c;
+
+  cursor:pointer;
+
+  font-weight:800;
+
+  font-size:11px;
+}
+
+.modal-actions .confirm{
+  background:var(--green);
+  color:white;
+}
+
+.modal-actions .confirm:hover{
+  background:#20bd5c;
+}
+
+.error{
+  font-size:11px;
+
+  color:#d34e48;
+
+  min-height:17px;
+
+  margin-top:10px;
+}
+
+.success-message{
+  display:none;
+
+  text-align:center;
+
+  padding:15px;
+
+  margin-top:15px;
+
+  border-radius:12px;
+
+  background:#e7f8ee;
+
+  color:#17663e;
+
+  font-size:13px;
+
+  font-weight:800;
+}
+
+.success-message.show{
+  display:block;
+}
+
+/* ADMIN MODAL */
+
+.admin-modal-box{
+  background:#111;
+  color:white;
+}
+
+.admin-modal-box h3{
+  color:white;
+}
+
+.admin-modal-box p{
+  color:#999;
+}
+
+.admin-modal-box label{
+  color:#999;
+}
+
+.admin-modal-box input{
+  background:#080808;
+  border-color:#292929;
+  color:white;
+}
+
+.admin-modal-box input:focus{
+  border-color:#25d366;
+
+  box-shadow:0 0 0 3px rgba(37,211,102,.08);
+}
+
+.admin-modal-box .modal-actions button{
+  background:#1d1d1d;
+  color:white;
+}
+
+.admin-modal-box .modal-actions .confirm{
+  background:#25d366;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .navlinks{
+    display:none;
+  }
+
+  .darkgrid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .productgrid{
+    grid-template-columns:1fr;
+  }
+
+  .contactbox{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  h1{
+    letter-spacing:-3px;
+  }
+
+  .card{
+    padding:25px 18px;
+  }
+
+  footer .container{
+    flex-direction:column;
+  }
+
+  .chat-launch{
+    top:auto;
+
+    left:14px;
+    bottom:18px;
+
+    transform:none;
+
+    min-width:100px;
+
+    height:50px;
+
+    border-radius:14px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.35);
+  }
+
+  .chat-launch:hover{
+    min-width:100px;
+  }
+
+  .chat-head{
+    min-height:70px;
+    padding:0 10px;
+  }
+
+  .chat-brand{
+    gap:9px;
+  }
+
+  .chat-brand-icon{
+    width:40px;
+    height:40px;
+  }
+
+  .messages{
+    padding:22px 10px;
+
+    background-image:
+      linear-gradient(
+        rgba(217,253,211,.15),
+        rgba(217,253,211,.15)
+      ),
+      url("chat-wallpaper.jpg");
+
+    background-size:cover,cover;
+    background-position:center,center;
+    background-repeat:no-repeat,no-repeat;
+    background-attachment:scroll,scroll;
+  }
+
+  .msg{
+    max-width:88%;
+  }
+
+  .message-media{
+    max-width:75vw;
+  }
+
+  .chat-compose{
+    padding:8px 8px 12px;
+  }
+
+  .chat-menu{
+    right:12px;
+    top:60px;
+    width:calc(100% - 24px);
+  }
+
+  .attach,
+  .mic-btn,
+  .emoji-btn,
+  .send{
+    width:44px;
+    height:44px;
+  }
+
+  .compose-row{
+    gap:5px;
+  }
+
+  .compose-row textarea{
+    min-height:44px;
+    padding-left:13px;
+    padding-right:13px;
+  }
+
+  .emoji-picker{
+    left:8px;
+    bottom:80px;
+    width:calc(100% - 16px);
+    grid-template-columns:repeat(8,1fr);
+  }
+
+}
+
+@media(max-width:480px){
+
+  .darkgrid{
+    grid-template-columns:1fr;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .price{
+    font-size:52px;
+  }
+
+  .chat-title b{
+    font-size:13px;
+  }
+
+  .chat-title span{
+    font-size:9px;
+  }
+
+  .head-actions{
+    gap:3px;
+  }
+
+  .iconbtn{
+    width:38px;
+    height:38px;
+  }
+
+  .msg{
+    max-width:91%;
+  }
+
+  .chat-launch{
+    left:10px;
+    bottom:10px;
+  }
+
+  .emoji{
+    font-size:20px;
+  }
+
+  .message-context{
+    width:calc(100vw - 28px);
+  }
+
+}
+
+</style>
+</head>
+<body>
+<nav>
+  <div class="container navin">
+    <a class="logo" href="#">
+      POLARIS<span>.</span>
+    </a>
+
+    <div class="navlinks">
+      <a href="#technology">Teknologjia</a>
+      <a href="#product">Produkti</a>
+      <a href="#mission">Misioni</a>
+      <a href="#order">Porosit</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Smart Mobility Albania</div>
+
+    <h1>
+      POLARIS
+      <br>
+      <span>SMART CANE</span>
+    </h1>
+
+    <p>
+      Një shkop inteligjent i krijuar për të sjellë më shumë
+      siguri, pavarësi dhe teknologji në lëvizjen e përditshme.
+    </p>
+
+    <div class="buttons">
+      <a class="btn primary" href="#product">MËSO MË SHUMË</a>
+      <a class="btn" href="#order">POROSIT TANI</a>
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="container">
+    <div class="eyebrow">01 — Ideja</div>
+    <h2 class="section-title">Teknologji që lëviz me ty.</h2>
+    <p>
+      POLARIS kombinon elektronikën portative me sensorë
+      inteligjentë për të krijuar një përvojë më të sigurt
+      dhe më intuitive gjatë ecjes.
+    </p>
+  </div>
+</section>
+
+<section id="technology">
+  <div class="container">
+    <div class="eyebrow">02 — Technology</div>
+    <h2 class="section-title">SMART<br>BY DESIGN.</h2>
+
+    <div class="darkgrid">
+      <article class="card">
+        <div class="num">01</div>
+        <h3>Sensorë inteligjentë</h3>
+        <p>Sensorë ultrasonikë identifikojnë pengesat dhe matin distancën në kohë reale.</p>
+      </article>
+
+      <article class="card">
+        <div class="num">02</div>
+        <h3>Reagim me vibrim</h3>
+        <p>Vibrimi ndryshon sipas distancës së pengesës për një reagim intuitiv.</p>
+      </article>
+
+      <article class="card">
+        <div class="num">03</div>
+        <h3>Përdorim i thjeshtë</h3>
+        <p>Ndërfaqe minimale dhe kontroll i drejtpërdrejtë, pa komplikime të panevojshme.</p>
+      </article>
+
+      <article class="card">
+        <div class="num">04</div>
+        <h3>Teknologji portative</h3>
+        <p>Elektronika është integruar në një pajisje praktike për përdorim të përditshëm.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="product" class="product">
+  <div class="container productgrid">
+    <img src="polaris.jpg" alt="POLARIS Smart Cane">
+
+    <div>
+      <div class="eyebrow">03 — POLARIS</div>
+      <h2 class="section-title">SIGURI.<br>INOVACION.<br>PAVARËSI.</h2>
+
+      <p style="color:#aaa;margin-top:24px">
+        Një pajisje e projektuar për të ndihmuar përdoruesin
+        të perceptojë pengesat përpara tij përmes feedback-ut fizik.
+      </p>
+
+      <div class="specs">
+        <div class="spec"><b>360° APPROACH</b><span>Ndihmë gjatë lëvizjes</span></div>
+        <div class="spec"><b>USB CHARGING</b><span>Karikim praktik</span></div>
+        <div class="spec"><b>REAL FEEDBACK</b><span>Reagim përmes vibrimit</span></div>
+        <div class="spec"><b>SMART TECHNOLOGY</b><span>Sensorë dhe elektronikë</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mission" class="mission">
+  <div class="container">
+    <div class="eyebrow" style="color:white">04 — Misioni</div>
+    <h2 class="section-title">TEKNOLOGJI<br>PËR PAVARËSI.</h2>
+    <p>
+      POLARIS synon të sjellë inovacion social dhe teknologji
+      më të aksesueshme për personat me vështirësi në shikim,
+      duke e bërë teknologjinë pjesë të natyrshme të lëvizjes
+      së përditshme.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">05 — Si funksionon</div>
+    <h2 class="section-title">THJESHT.<br>SMART.</h2>
+
+    <div class="steps">
+      <div class="step">
+        <strong>01</strong>
+        <h3>DETEKTON</h3>
+        <p>Sensorët kontrollojnë hapësirën përpara përdoruesit.</p>
+      </div>
+
+      <div class="step">
+        <strong>02</strong>
+        <h3>ANALIZON</h3>
+        <p>Sistemi përcakton afërsinë e pengesës.</p>
+      </div>
+
+      <div class="step">
+        <strong>03</strong>
+        <h3>LAJMËRON</h3>
+        <p>Motorët e vibrimit japin feedback fizik.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="order" class="order">
+  <div class="container">
+    <div class="eyebrow">06 — Porosit</div>
+    <h2 class="section-title">POLARIS<br>SMART CANE</h2>
+
+    <div class="price">160€</div>
+
+    <a class="btn primary" href="https://wa.me/355682673885" target="_blank" rel="noopener">
+      POROSIT NË WHATSAPP
+    </a>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="container contactbox">
+    <div>
+      <div class="eyebrow">07 — Kontakt</div>
+      <h2 class="section-title">LE TË FLASIM.</h2>
+      <p>Na kontaktoni për informacion, bashkëpunime ose porosi.</p>
+    </div>
+
+    <div class="buttons">
+      <a class="btn primary" href="https://wa.me/355682673885" target="_blank" rel="noopener">WHATSAPP</a>
+      <a class="btn" href="mailto:ecisigurt@gmail.com">EMAIL</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>©️ 2026 POLARIS — Smart Mobility Albania</span>
+    <span>Project Director: Ledjan Bitri</span>
+  </div>
+</footer>
+
+<!-- =========================================================
+     CHAT LAUNCHER
+========================================================= -->
+<button class="chat-launch" id="chatLaunch" type="button" aria-label="Hap POLARIS Community">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="
+      M20 4.5
+      A3.5 3.5 0 0 0 16.5 1
+      h-9
+      A3.5 3.5 0 0 0 4 4.5
+      v7
+      A3.5 3.5 0 0 0 7.5 15
+      H9
+      v3.2
+      a.8.8 0 0 0 1.3.62
+      L14.2 15
+      h2.3
+      A3.5 3.5 0 0 0 20 11.5
+      v-7Z
+
+      M8 8.2
+      a1 1 0 1 1 0-2
+      1 1 0 0 1 0 2Z
+
+      M12 8.2
+      a1 1 0 1 1 0-2
+      1 1 0 0 1 0 2Z
+
+      M16 8.2
+      a1 1 0 1 1 0-2
+      1 1 0 0 1 0 2Z
+    "/>
+  </svg>
+  <span>CHAT</span>
+</button>
+
+<!-- =========================================================
+     CHAT PANEL
+========================================================= -->
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-app">
+    <div class="chat-head">
+      <div class="chat-brand">
+        <div class="chat-brand-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="
+              M20 4.5
+              A3.5 3.5 0 0 0 16.5 1
+              h-9
+              A3.5 3.5 0 0 0 4 4.5
+              v7
+              A3.5 3.5 0 0 0 7.5 15
+              H9
+              v3.2
+              a.8.8 0 0 0 1.3.62
+              L14.2 15
+              h2.3
+              A3.5 3.5 0 0 0 20 11.5
+              v-7Z
+            "/>
+          </svg>
+        </div>
+
+        <div class="chat-title">
+          <b>POLARIS COMMUNITY</b>
+          <span id="chatStatus">Komuniteti i POLARIS</span>
+        </div>
+      </div>
+
+      <div class="head-actions">
+        <button class="iconbtn" id="menuBtn" type="button" aria-label="Menu">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 7h16"/>
+            <path d="M4 12h16"/>
+            <path d="M4 17h16"/>
+          </svg>
+        </button>
+
+        <button class="iconbtn" id="closeChat" type="button" aria-label="Mbyll chatin" title="Kthehu">
+          <span style="font-size:24px;line-height:1;font-weight:700;">➡</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="adminbar" id="adminBar">
+      <span><b>ADMIN MODE</b> — Ledjan Bitri</span>
+      <button id="logoutAdmin" type="button">LOG OUT</button>
+    </div>
+
+    <div class="chat-body">
+      <div class="chat-menu" id="chatMenu">
+        <div class="menu-title">Komuniteti</div>
+
+        <button class="menu-item" id="joinCommunity" type="button">
+          <svg viewBox="0 0 24 24">
+            <path d="M16 21v-2 a4 4 0 0 0-4-4 H6 a4 4 0 0 0-4 4 v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2 a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13 a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <span>
+            <strong>Bëhu pjesë e komunitetit</strong>
+            <small>Regjistrohu me email dhe password</small>
+          </span>
+        </button>
+
+        <button class="menu-item" id="menuAdmin" type="button">
+          <svg viewBox="0 0 24 24">
+            <rect x="4" y="10" width="16" height="11" rx="2"/>
+            <path d="M8 10V7 a4 4 0 0 1 8 0 v3"/>
+          </svg>
+          <span>
+            <strong>Admin</strong>
+            <small>Hyr në panelin privat</small>
+          </span>
+        </button>
+      </div>
+
+      <div class="messages" id="messages">
+        <div class="chat-welcome">
+          <strong>Mirë se vini në POLARIS Community.</strong>
+          <br>
+          Shkruani pyetjet, idetë, sugjerimet ose mendimet tuaja.
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-compose">
+      <div class="emoji-picker" id="emojiPicker"></div>
+
+      <div class="recording-bar" id="recordingBar">
+        <span class="recording-dot"></span>
+        <span>Duke regjistruar...</span>
+        <strong id="recordingTimer">0:00</strong>
+        <span>Liro mikrofonin për ta dërguar</span>
+      </div>
+
+      <div class="identity" id="identity">
+        Po shkruan si <strong>...</strong>
+      </div>
+
+      <div class="media-preview" id="mediaPreview">
+        <div id="mediaPreviewContent"></div>
+        <div class="media-preview-info" id="mediaPreviewInfo"></div>
+        <button class="remove-media" id="removeMedia" type="button" aria-label="Hiq median">×</button>
+      </div>
+
+      <div class="compose-row">
+        <button class="emoji-btn" id="emojiBtn" type="button" aria-label="Emoji" title="Emoji">🙂</button>
+
+        <button class="attach" id="attachBtn" type="button" aria-label="Dërgo foto ose video" title="Foto ose video">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 15v4 a2 2 0 0 1-2 2 H5 a2 2 0 0 1-2-2 V5 a2 2 0 0 1 2-2 h4"/>
+            <path d="m3 16 5-5 4 4 3-3 6 6"/>
+            <circle cx="16.5" cy="7.5" r="2.5"/>
+          </svg>
+        </button>
+
+        <input class="file-input" id="mediaInput" type="file" accept="image/*,video/*">
+
+        <button class="mic-btn" id="micBtn" type="button" aria-label="Mbaj shtypur për të regjistruar" title="Mbaj shtypur për të regjistruar">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="9" y="3" width="6" height="11" rx="3"/>
+            <path d="M5 11 a7 7 0 0 0 14 0"/>
+            <path d="M12 18v3"/>
+            <path d="M8 21h8"/>
+          </svg>
+        </button>
+
+        <textarea id="messageInput" maxlength="1000" rows="1" placeholder="Shkruaj një mesazh..."></textarea>
+
+        <button class="send" id="sendBtn" type="button" aria-label="Dërgo" disabled>
+          <svg viewBox="0 0 24 24">
+            <path d="M22 2 11 13"/>
+            <path d="m22 2-7 20-4-9-9-4Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     LONG PRESS MENU
+========================================================= -->
+<div class="message-context" id="messageContext" role="menu" aria-hidden="true">
+  <button type="button" id="deleteOwnContext" class="danger">Fshi mesazhin</button>
+  <button type="button" id="cancelMessageContext" class="cancel">Anulo</button>
+</div>
+
+<!-- =========================================================
+     REGISTER MODAL
+========================================================= -->
+<div class="modal" id="registerModal">
+  <div class="modalbox">
+    <div class="modal-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M16 21v-2 a4 4 0 0 0-4-4 H6 a4 4 0 0 0-4 4 v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M19 8v6 M22 11h-6"/>
+      </svg>
+    </div>
+
+    <h3>Bëhu pjesë e komunitetit</h3>
+    <p>Krijo llogarinë tënde POLARIS për një përvojë më të personalizuar.</p>
+
+    <label for="registerEmail">Email</label>
+    <input id="registerEmail" type="email" autocomplete="email" placeholder="email@example.com">
+
+    <label for="registerPassword">Password</label>
+    <input id="registerPassword" type="password" autocomplete="new-password" placeholder="Zgjidh një password">
+
+    <div class="error" id="registerError"></div>
+    <div class="success-message" id="registerSuccess">U regjistruat me sukses!</div>
+
+    <div class="modal-actions">
+      <button id="cancelRegister" type="button">ANULO</button>
+      <button class="confirm" id="registerBtn" type="button">REGJISTROHU</button>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     ADMIN LOGIN
+========================================================= -->
+<div class="modal" id="adminModal">
+  <div class="modalbox admin-modal-box">
+    <div class="modal-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="4" y="10" width="16" height="11" rx="2"/>
+        <path d="M8 10V7 a4 4 0 0 1 8 0 v3"/>
+      </svg>
+    </div>
+
+    <h3>ADMIN — POLARIS</h3>
+    <p>Paneli privat i administratorit. Fjalëkalimi verifikohet në mënyrë të sigurt.</p>
+
+    <label for="adminPassword">Password</label>
+    <input id="adminPassword" type="password" autocomplete="current-password" placeholder="Fjalëkalimi">
+
+    <div class="error" id="adminError"></div>
+
+    <div class="modal-actions">
+      <button id="cancelAdmin" type="button">ANULO</button>
+      <button class="confirm" id="loginAdmin" type="button">HYR SI ADMIN</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+
+(function(){
+
+"use strict";
+
+/* =========================================================
+   CONFIG
+========================================================= */
+
+const SUPABASE_URL = "https://lvixkzjepgbqnkpgybfo.supabase.co";
+const SUPABASE_KEY = "sb_publishable_B_6rtcuU7J5kKTttBb9RIQ_PErm6nbh";
+const ADMIN_EMAIL = "Ledjanbitri15@gmail.com";
+const MEDIA_BUCKET = "polaris-media";
+const MAX_MEDIA_SIZE = 50 * 1024 * 1024;
+const TYPING_BROADCAST_EVENT = "typing";
+const TYPING_HIDE_DELAY = 2200;
+
+/* =========================================================
+   SUPABASE
+========================================================= */
+
+let supabaseClient = null;
+
+try{
+  if(window.supabase && typeof window.supabase.createClient === "function"){
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+      auth:{
+        persistSession:false,
+        autoRefreshToken:true,
+        detectSessionInUrl:false
+      }
+    });
+  }
+}catch(error){
+  console.error("POLARIS Supabase error:", error);
+}
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let adminMode = false;
+let anonymousName = null;
+let realtimeChannel = null;
+let selectedMedia = null;
+let typingTimer = null;
+let remoteTypingTimer = null;
+let mediaObjectUrl = null;
+let mediaRecorder = null;
+let recordingChunks = [];
+let recordingStartTime = 0;
+let recordingTimerInterval = null;
+let isRecording = false;
+
+/* =========================================================
+   LONG PRESS STATE
+========================================================= */
+
+let longPressTimer = null;
+let longPressStartX = 0;
+let longPressStartY = 0;
+let longPressElement = null;
+let contextMessageId = null;
+const LONG_PRESS_MS = 550;
+const LONG_PRESS_MOVE = 22;
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function $(id){
+  return document.getElementById(id);
+}
+
+function on(id,event,handler){
+  const el = $(id);
+  if(el){
+    el.addEventListener(event, handler);
+  }else{
+    console.warn("POLARIS: missing element #" + id);
+  }
+}
+
+function escapeHtml(value){
+  return String(value || "").replace(/[&<>"']/g, character => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#039;"
+  }[character]));
+}
+
+function showChatConnectionError(message){
+  const messages = $("messages");
+  if(!messages){
+    return;
+  }
+  messages.innerHTML = `
+    <div class="chat-welcome">
+      <strong>POLARIS Community</strong>
+      <br><br>
+      ${escapeHtml(message)}
+    </div>
+  `;
+}
+
+/* =========================================================
+   ANONYMOUS USER NUMBER
+========================================================= */
+
+async function getAnonymousName(){
+  const saved = sessionStorage.getItem("polaris_anon_name");
+  if(saved){
+    return saved;
+  }
+
+  if(!supabaseClient){
+    const fallback = String(Math.floor(Math.random() * 900000) + 100000);
+    sessionStorage.setItem("polaris_anon_name", fallback);
+    return fallback;
+  }
+
+  try{
+    const result = await supabaseClient.rpc("next_polaris_chat_anon");
+    if(!result.error && result.data !== null && result.data !== undefined){
+      const name = String(result.data);
+      sessionStorage.setItem("polaris_anon_name", name);
+      return name;
+    }
+  }catch(error){
+    console.error("POLARIS anonymous ID:", error);
+  }
+
+  const fallback = String(Math.floor(Math.random() * 900000) + 100000);
+  sessionStorage.setItem("polaris_anon_name", fallback);
+  return fallback;
+}
+
+/* =========================================================
+   WELCOME
+========================================================= */
+
+function getWelcome(){
+  return `
+    <div class="chat-welcome">
+      <strong>Mirë se vini në POLARIS Community.</strong>
+      <br>
+      Shkruani pyetjet, idetë, sugjerimet ose mendimet tuaja.
+    </div>
+  `;
+}
+
+/* =========================================================
+   MEDIA RENDER
+========================================================= */
+
+function renderMedia(message){
+  if(!message.media_url || !message.media_type){
+    return "";
+  }
+
+  const url = escapeHtml(message.media_url);
+  const type = String(message.media_type);
+
+  if(type.startsWith("image/")){
+    return `
+      <div class="message-media">
+        <a href="${url}" target="_blank" rel="noopener">
+          <img src="${url}" alt="Foto e dërguar në POLARIS Community" loading="lazy">
+        </a>
+      </div>
+    `;
+  }
+
+  if(type.startsWith("video/")){
+    return `
+      <div class="message-media">
+        <video controls preload="metadata" playsinline>
+          <source src="${url}" type="${escapeHtml(type)}">
+          Shfletuesi nuk mbështet videon.
+        </video>
+      </div>
+    `;
+  }
+
+  if(type.startsWith("audio/")){
+    return `
+      <div class="voice-message">
+        <audio controls preload="metadata">
+          <source src="${url}" type="${escapeHtml(type)}">
+          Shfletuesi nuk mbështet audion.
+        </audio>
+      </div>
+    `;
+  }
+
+  return "";
+}
+
+/* =========================================================
+   SENT / SEEN STATUS
+========================================================= */
+
+function renderStatus(message, isMine){
+  if(!isMine){
+    return "";
+  }
+
+  const seen = !!message.seen;
+
+  const singleCheck = `
+    <svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>
+  `;
+
+  const doubleCheck = `
+    <svg viewBox="0 0 24 24"><path d="M1 12l5 5L17 6"/></svg>
+    <svg viewBox="0 0 24 24" style="margin-left:-7px"><path d="M7 12l5 5L23 6"/></svg>
+  `;
+
+  return `
+    <span class="sent-status ${seen ? "seen" : ""}">
+      ${seen ? "" : "Delivered"}
+      ${seen ? doubleCheck : singleCheck}
+    </span>
+  `;
+}
+
+/* =========================================================
+   MARK MESSAGES AS SEEN (best effort)
+========================================================= */
+
+async function markMessagesSeen(list){
+  if(!supabaseClient || !Array.isArray(list) || !list.length){
+    return;
+  }
+
+  const myName = adminMode ? "Ledjan Bitri" : anonymousName;
+
+  const idsToMark = list
+    .filter(message => message.user_name !== myName && !message.seen)
+    .map(message => message.id);
+
+  if(!idsToMark.length){
+    return;
+  }
+
+  try{
+    await supabaseClient
+      .from("polaris_messages")
+      .update({ seen:true })
+      .in("id", idsToMark);
+  }catch(error){
+    /*
+      Kjo kërkon një kolonë "seen" (boolean, default false)
+      në tabelën polaris_messages, me RLS që lejon UPDATE.
+      Nëse kolona nuk ekziston ende, thjesht injorojmë gabimin.
+    */
+    console.warn("POLARIS seen-status (kolona 'seen' mungon?):", error);
+  }
+}
+
+/* =========================================================
+   LOAD MESSAGES
+========================================================= */
+
+async function loadMessages(){
+  if(!supabaseClient){
+    showChatConnectionError("Supabase nuk u ngarkua. Kontrollo lidhjen me internetin dhe provo përsëri.");
+    return;
+  }
+
+  const messages = $("messages");
+  if(!messages){
+    return;
+  }
+
+  try{
+    const result = await supabaseClient
+      .from("polaris_messages")
+      .select("id,user_name,message,created_at,media_url,media_type,media_name,seen")
+      .order("created_at", { ascending:true });
+
+    if(result.error){
+      console.error("POLARIS CHAT:", result.error);
+      showChatConnectionError("Chat-i nuk u lidh me serverin. Kontrollo Supabase dhe provo përsëri.");
+      return;
+    }
+
+    const list = result.data || [];
+    renderMessages(list);
+    markMessagesSeen(list);
+  }catch(error){
+    console.error("POLARIS LOAD:", error);
+    showChatConnectionError("Ndodhi një problem gjatë ngarkimit të chat-it.");
+  }
+}
+
+/* =========================================================
+   RENDER ALL
+========================================================= */
+
+function renderMessages(list){
+  const messages = $("messages");
+  if(!messages){
+    return;
+  }
+
+  let html = getWelcome();
+
+  if(!list.length){
+    html += `<div class="chat-welcome">Bëhu i pari që nis bisedën.</div>`;
+  }else{
+    html += list.map(message => {
+      const isAdmin = message.user_name === "Ledjan Bitri";
+      const isMine = adminMode ? isAdmin : message.user_name === anonymousName;
+
+      const adminLabel = isAdmin
+        ? "Ledjan Bitri · ADMIN"
+        : "Përdoruesi " + escapeHtml(message.user_name);
+
+      const safeMessage = escapeHtml(message.message || "");
+      const media = renderMedia(message);
+
+      return `
+        <div class="msg ${isMine ? "mine" : ""} ${isAdmin ? "admin" : ""}"
+             data-message-id="${escapeHtml(message.id)}"
+             data-user-name="${escapeHtml(message.user_name)}">
+          <div class="meta">
+            ${adminLabel}
+            ${adminMode ? `<button class="delete-msg" data-delete="${escapeHtml(message.id)}" type="button">Fshi</button>` : ""}
+          </div>
+          ${safeMessage ? `<div class="text">${safeMessage}</div>` : ""}
+          ${media}
+          ${renderStatus(message, isMine)}
+        </div>
+      `;
+    }).join("");
+  }
+
+  html += `
+    <div class="typing-wrap" id="typingIndicator">
+      <div class="typing-bubble">
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+      </div>
+    </div>
+  `;
+
+  messages.innerHTML = html;
+  messages.scrollTop = messages.scrollHeight;
+}
+
+/* =========================================================
+   ADD SINGLE REALTIME MESSAGE
+========================================================= */
+
+function appendRealtimeMessage(message){
+  if(!message){
+    return;
+  }
+
+  const messages = $("messages");
+  if(!messages){
+    return;
+  }
+
+  const existing = [...messages.querySelectorAll(".msg")]
+    .find(element => String(element.dataset.messageId) === String(message.id));
+
+  if(existing){
+    return;
+  }
+
+  const isAdmin = message.user_name === "Ledjan Bitri";
+  const isMine = adminMode ? isAdmin : message.user_name === anonymousName;
+
+  const label = isAdmin
+    ? "Ledjan Bitri · ADMIN"
+    : "Përdoruesi " + escapeHtml(message.user_name);
+
+  const text = escapeHtml(message.message || "");
+  const media = renderMedia(message);
+
+  const div = document.createElement("div");
+  div.className = `msg ${isMine ? "mine" : ""} ${isAdmin ? "admin" : ""}`;
+  div.dataset.messageId = String(message.id);
+  div.dataset.userName = String(message.user_name || "");
+
+  div.innerHTML = `
+    <div class="meta">
+      ${label}
+      ${adminMode ? `<button class="delete-msg" data-delete="${escapeHtml(message.id)}" type="button">Fshi</button>` : ""}
+    </div>
+    ${text ? `<div class="text">${text}</div>` : ""}
+    ${media}
+    ${renderStatus(message, isMine)}
+  `;
+
+  const typing = $("typingIndicator");
+  if(typing){
+    messages.insertBefore(div, typing);
+  }else{
+    messages.appendChild(div);
+  }
+
+  messages.scrollTop = messages.scrollHeight;
+
+  markMessagesSeen([message]);
+
+  /* mesazhi i ri i dikujt tjetër = ndalo shfaqjen e "typing" për të */
+  if(!isMine){
+    hideTyping();
+  }
+}
+
+/* =========================================================
+   UPDATE STATUS ON A RENDERED MESSAGE (seen realtime update)
+========================================================= */
+
+function updateMessageStatus(message){
+  if(!message){
+    return;
+  }
+
+  const element = [...document.querySelectorAll("#messages .msg")]
+    .find(node => String(node.dataset.messageId) === String(message.id));
+
+  if(!element){
+    return;
+  }
+
+  const isAdmin = message.user_name === "Ledjan Bitri";
+  const isMine = adminMode ? isAdmin : message.user_name === anonymousName;
+
+  const existingStatus = element.querySelector(".sent-status");
+  const newStatusHtml = renderStatus(message, isMine);
+
+  if(existingStatus){
+    existingStatus.outerHTML = newStatusHtml;
+  }else if(newStatusHtml){
+    element.insertAdjacentHTML("beforeend", newStatusHtml);
+  }
+}
+
+/* =========================================================
+   REALTIME
+========================================================= */
+
+async function setupRealtime(){
+  if(!supabaseClient){
+    return;
+  }
+
+  try{
+    if(realtimeChannel){
+      await supabaseClient.removeChannel(realtimeChannel);
+      realtimeChannel = null;
+    }
+
+    realtimeChannel = supabaseClient
+      .channel("polaris-community-chat")
+      .on("postgres_changes", { event:"INSERT", schema:"public", table:"polaris_messages" }, payload => {
+        appendRealtimeMessage(payload.new);
+      })
+      .on("postgres_changes", { event:"DELETE", schema:"public", table:"polaris_messages" }, payload => {
+        const id = String(payload.old && payload.old.id);
+        const item = [...document.querySelectorAll("#messages .msg")]
+          .find(node => String(node.dataset.messageId) === id);
+        if(item){
+          item.remove();
+        }
+      })
+      .on("postgres_changes", { event:"UPDATE", schema:"public", table:"polaris_messages" }, payload => {
+        updateMessageStatus(payload.new);
+      })
+      .on("broadcast", { event:TYPING_BROADCAST_EVENT }, payload => {
+        const senderName = payload && payload.payload && payload.payload.name;
+        const myName = adminMode ? "Ledjan Bitri" : anonymousName;
+
+        if(!senderName || senderName === myName){
+          return;
+        }
+
+        showTyping();
+
+        clearTimeout(remoteTypingTimer);
+        remoteTypingTimer = setTimeout(hideTyping, TYPING_HIDE_DELAY);
+      })
+      .subscribe(status => {
+        console.log("POLARIS realtime:", status);
+      });
+  }catch(error){
+    console.error("POLARIS realtime error:", error);
+  }
+}
+
+function broadcastTyping(){
+  if(!realtimeChannel){
+    return;
+  }
+
+  const myName = adminMode ? "Ledjan Bitri" : anonymousName;
+  if(!myName){
+    return;
+  }
+
+  try{
+    realtimeChannel.send({
+      type:"broadcast",
+      event:TYPING_BROADCAST_EVENT,
+      payload:{ name:myName }
+    });
+  }catch(error){
+    console.warn("POLARIS typing broadcast:", error);
+  }
+}
+
+/* =========================================================
+   IDENTITY
+========================================================= */
+
+async function refreshIdentity(){
+  if(adminMode){
+    $("identity").innerHTML = `Po shkruan si <strong>Ledjan Bitri · ADMIN</strong>`;
+    $("chatStatus").textContent = "Administrator aktiv";
+    $("adminBar").classList.add("active");
+    return;
+  }
+
+  $("adminBar").classList.remove("active");
+
+  anonymousName = anonymousName || await getAnonymousName();
+
+  $("identity").innerHTML = `Po shkruan si <strong>Përdoruesi ${escapeHtml(anonymousName)}</strong>`;
+  $("chatStatus").textContent = "Komuniteti i POLARIS";
+}
+
+/* =========================================================
+   SEND BUTTON
+========================================================= */
+
+function updateSendButton(){
+  const input = $("messageInput");
+  const hasText = !!input && input.value.trim().length > 0;
+  const hasMedia = !!selectedMedia;
+  $("sendBtn").disabled = !hasText && !hasMedia;
+}
+
+/* =========================================================
+   CLEAR MEDIA
+========================================================= */
+
+function clearSelectedMedia(){
+  selectedMedia = null;
+
+  const input = $("mediaInput");
+  if(input){
+    input.value = "";
+  }
+
+  if(mediaObjectUrl){
+    URL.revokeObjectURL(mediaObjectUrl);
+    mediaObjectUrl = null;
+  }
+
+  $("mediaPreview").classList.remove("show");
+  $("mediaPreviewContent").innerHTML = "";
+  $("mediaPreviewInfo").innerHTML = "";
+
+  updateSendButton();
+}
+
+/* =========================================================
+   UPLOAD IMAGE / VIDEO
+========================================================= */
+
+async function uploadMedia(file){
+  if(!file){
+    return null;
+  }
+
+  if(!file.type.startsWith("image/") && !file.type.startsWith("video/")){
+    throw new Error("Lejohen vetëm foto dhe video.");
+  }
+
+  if(file.size > MAX_MEDIA_SIZE){
+    throw new Error("File-i është shumë i madh. Maksimumi është 50 MB.");
+  }
+
+  if(!supabaseClient){
+    throw new Error("Supabase nuk është i lidhur.");
+  }
+
+  let extension = (file.name.split(".").pop() || "file").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+  if(!extension){
+    extension = file.type.startsWith("image/") ? "jpg" : "mp4";
+  }
+
+  const uniqueName = Date.now() + "-" + Math.random().toString(36).slice(2) + "." + extension;
+  const path = "community/" + uniqueName;
+
+  const upload = await supabaseClient.storage.from(MEDIA_BUCKET).upload(path, file, {
+    cacheControl:"3600",
+    upsert:false,
+    contentType:file.type
+  });
+
+  if(upload.error){
+    console.error("MEDIA UPLOAD:", upload.error);
+    throw new Error("Fotoja ose videoja nuk u ngarkua.");
+  }
+
+  const publicResult = supabaseClient.storage.from(MEDIA_BUCKET).getPublicUrl(path);
+
+  return {
+    url: publicResult.data.publicUrl,
+    type: file.type,
+    name: file.name
+  };
+}
+
+/* =========================================================
+   SEND PHOTO/VIDEO DIRECTLY (no preview, no confirmation)
+========================================================= */
+
+async function sendMediaDirectly(file){
+  if(!supabaseClient){
+    alert("Chat-i nuk është lidhur me Supabase.");
+    return;
+  }
+
+  if(!anonymousName && !adminMode){
+    anonymousName = await getAnonymousName();
+  }
+
+  const finalUserName = adminMode ? "Ledjan Bitri" : anonymousName;
+
+  $("attachBtn").disabled = true;
+
+  try{
+    const mediaData = await uploadMedia(file);
+
+    const result = await supabaseClient.from("polaris_messages").insert({
+      user_name: finalUserName,
+      message: "",
+      media_url: mediaData.url,
+      media_type: mediaData.type,
+      media_name: mediaData.name
+    });
+
+    if(result.error){
+      console.error("MEDIA INSERT:", result.error);
+      throw new Error("Fotoja nuk u dërgua.");
+    }
+  }catch(error){
+    console.error("POLARIS MEDIA SEND:", error);
+    alert(error.message || "Fotoja nuk u dërgua.");
+  }finally{
+    $("attachBtn").disabled = false;
+    clearSelectedMedia();
+  }
+}
+
+/* =========================================================
+   AUDIO
+========================================================= */
+
+function audioExtension(mime){
+  const type = String(mime || "").toLowerCase();
+  if(type.includes("ogg")){
+    return "ogg";
+  }
+  if(type.includes("mp4") || type.includes("m4a")){
+    return "m4a";
+  }
+  return "webm";
+}
+
+async function uploadAudio(blob){
+  if(!blob){
+    return null;
+  }
+
+  if(blob.size > MAX_MEDIA_SIZE){
+    throw new Error("Audio është shumë i madh.");
+  }
+
+  if(!supabaseClient){
+    throw new Error("Supabase nuk është i lidhur.");
+  }
+
+  const mime = blob.type || "audio/webm";
+  const extension = audioExtension(mime);
+  const filename = "voice-" + Date.now() + "-" + Math.random().toString(36).slice(2) + "." + extension;
+  const path = "community/" + filename;
+
+  const upload = await supabaseClient.storage.from(MEDIA_BUCKET).upload(path, blob, {
+    cacheControl:"3600",
+    upsert:false,
+    contentType:mime
+  });
+
+  if(upload.error){
+    console.error("AUDIO UPLOAD:", upload.error);
+    throw new Error("Audio nuk u ngarkua. Kontrollo bucket-in polaris-media.");
+  }
+
+  const publicResult = supabaseClient.storage.from(MEDIA_BUCKET).getPublicUrl(path);
+
+  return {
+    url: publicResult.data.publicUrl,
+    type: mime,
+    name: filename
+  };
+}
+
+/* =========================================================
+   SEND MESSAGE
+========================================================= */
+
+async function sendMessage(){
+  const input = $("messageInput");
+  const text = input.value.trim();
+
+  if(!text && !selectedMedia){
+    return;
+  }
+
+  if(!supabaseClient){
+    alert("Chat-i nuk është lidhur me Supabase.");
+    return;
+  }
+
+  if(!anonymousName && !adminMode){
+    anonymousName = await getAnonymousName();
+  }
+
+  const finalUserName = adminMode ? "Ledjan Bitri" : anonymousName;
+
+  $("sendBtn").disabled = true;
+
+  try{
+    let mediaData = null;
+
+    if(selectedMedia){
+      mediaData = await uploadMedia(selectedMedia);
+    }
+
+    const insertData = {
+      user_name: finalUserName,
+      message: text
+    };
+
+    if(mediaData){
+      insertData.media_url = mediaData.url;
+      insertData.media_type = mediaData.type;
+      insertData.media_name = mediaData.name;
+    }
+
+    const result = await supabaseClient.from("polaris_messages").insert(insertData);
+
+    if(result.error){
+      console.error("MESSAGE INSERT:", result.error);
+      throw new Error("Mesazhi nuk u dërgua.");
+    }
+
+    input.value = "";
+    input.style.height = "46px";
+    clearSelectedMedia();
+    stopTyping();
+  }catch(error){
+    console.error("POLARIS SEND:", error);
+    alert(error.message || "Mesazhi nuk u dërgua.");
+  }finally{
+    updateSendButton();
+  }
+}
+
+/* =========================================================
+   TYPING (local indicator, shown only for the OTHER person)
+========================================================= */
+
+function showTyping(){
+  const indicator = $("typingIndicator");
+  if(indicator){
+    indicator.classList.add("show");
+  }
+}
+
+function hideTyping(){
+  const indicator = $("typingIndicator");
+  if(indicator){
+    indicator.classList.remove("show");
+  }
+}
+
+function startTyping(){
+  broadcastTyping();
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(() => {}, 1400);
+}
+
+function stopTyping(){
+  clearTimeout(typingTimer);
+}
+
+/* =========================================================
+   EMOJIS
+========================================================= */
+
+const emojis = [
+"😀","😃","😄","😁","😆","😅","😂","🤣","😊","😇",
+"🙂","🙃","😉","😌","😍","🥰","😘","😗","😙","😚",
+"😋","😛","😝","😜","🤪","🤨","🧐","🤓","😎","🤩",
+"🥳","😏","😒","😞","😔","😟","😕","🙁","☹️","😣",
+"😖","😫","😩","🥺","😢","😭","😤","😠","😡","🤬",
+"🤯","😳","🥵","🥶","😱","😨","😰","😥","😓","🤗",
+"🤔","🤭","🤫","🤥","😶","😐","😑","😬","🙄","😯",
+"😦","😧","😮","😲","🥱","😴","🤤","😪","😵","🤐",
+"🥴","🤢","🤮","🤧","😷","🤒","🤕","🤑","🤠","😈",
+"👿","👹","👺","🤡","💩","👻","💀","☠️","👽","👾",
+"🤖","🎃","😺","😸","😹","😻","😼","😽","🙀","😿",
+"😾","🙈","🙉","🙊","💋","👋","🤚","🖐️","✋","🖖",
+"👌","🤏","✌️","🤞","🤟","🤘","🤙","👈","👉","👆",
+"👇","☝️","👍","👎","✊","👊","🤝","👏","🙌","👐",
+"🙏","❤️","🧡","💛","💚","💙","💜","🖤","🤍","🤎",
+"💔","❣️","💕","💞","💓","💗","💖","💘","💝","💟",
+"🔥","⭐","🌟","✨","💫","💥","🎉","🎊","💯","✅"
+];
+
+function setupEmojiPicker(){
+  const picker = $("emojiPicker");
+  if(!picker){
+    return;
+  }
+
+  picker.innerHTML = emojis.map(emoji => `
+    <button class="emoji" type="button" data-emoji="${emoji}">${emoji}</button>
+  `).join("");
+}
+
+function insertEmoji(emoji){
+  const input = $("messageInput");
+  if(!input){
+    return;
+  }
+
+  const start = input.selectionStart;
+  const end = input.selectionEnd;
+  const before = input.value.substring(0, start);
+  const after = input.value.substring(end);
+
+  input.value = before + emoji + after;
+
+  const cursor = start + emoji.length;
+  input.focus();
+  input.setSelectionRange(cursor, cursor);
+
+  input.dispatchEvent(new Event("input", { bubbles:true }));
+}
+
+/* =========================================================
+   RECORDING
+========================================================= */
+
+async function startRecording(event){
+  if(event){
+    event.preventDefault();
+  }
+
+  if(isRecording){
+    return;
+  }
+
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+    alert("Ky browser nuk mbështet regjistrimin e zërit.");
+    return;
+  }
+
+  if(typeof MediaRecorder === "undefined"){
+    alert("Ky browser nuk mbështet audio recording.");
+    return;
+  }
+
+  try{
+    const stream = await navigator.mediaDevices.getUserMedia({ audio:true });
+
+    const candidates = [
+      "audio/webm;codecs=opus",
+      "audio/webm",
+      "audio/ogg;codecs=opus",
+      "audio/mp4"
+    ];
+
+    let mimeType = "";
+
+    for(const candidate of candidates){
+      if(MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(candidate)){
+        mimeType = candidate;
+        break;
+      }
+    }
+
+    mediaRecorder = mimeType ? new MediaRecorder(stream, { mimeType }) : new MediaRecorder(stream);
+    recordingChunks = [];
+
+    mediaRecorder.ondataavailable = event => {
+      if(event.data && event.data.size > 0){
+        recordingChunks.push(event.data);
+      }
+    };
+
+    mediaRecorder.onstop = async () => {
+      clearInterval(recordingTimerInterval);
+
+      const actualType = mediaRecorder.mimeType || mimeType || "audio/webm";
+      const blob = new Blob(recordingChunks, { type:actualType });
+
+      stream.getTracks().forEach(track => track.stop());
+
+      isRecording = false;
+      $("micBtn").classList.remove("recording");
+      $("recordingBar").classList.remove("show");
+      recordingChunks = [];
+
+      if(!blob.size){
+        return;
+      }
+
+      try{
+        $("micBtn").disabled = true;
+
+        const audioData = await uploadAudio(blob);
+        const userName = adminMode ? "Ledjan Bitri" : (anonymousName || await getAnonymousName());
+
+        const result = await supabaseClient.from("polaris_messages").insert({
+          user_name: userName,
+          message: "",
+          media_url: audioData.url,
+          media_type: audioData.type,
+          media_name: audioData.name
+        });
+
+        if(result.error){
+          console.error("VOICE INSERT:", result.error);
+          throw new Error("Mesazhi audio nuk u dërgua.");
+        }
+      }catch(error){
+        console.error("VOICE:", error);
+        alert(error.message || "Audio nuk u dërgua.");
+      }finally{
+        $("micBtn").disabled = false;
+      }
+    };
+
+    mediaRecorder.start();
+    isRecording = true;
+    recordingStartTime = Date.now();
+
+    $("micBtn").classList.add("recording");
+    $("recordingBar").classList.add("show");
+
+    updateRecordingTimer();
+    recordingTimerInterval = setInterval(updateRecordingTimer, 500);
+  }catch(error){
+    console.error("MICROPHONE:", error);
+    alert("Nuk u dha leja për mikrofonin. Lejo mikrofonin në browser dhe provo përsëri.");
+  }
+}
+
+function updateRecordingTimer(){
+  if(!recordingStartTime){
+    return;
+  }
+
+  const seconds = Math.floor((Date.now() - recordingStartTime) / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const remaining = seconds % 60;
+
+  $("recordingTimer").textContent = minutes + ":" + String(remaining).padStart(2, "0");
+}
+
+function stopRecording(event){
+  if(event){
+    event.preventDefault();
+  }
+
+  if(!isRecording || !mediaRecorder){
+    return;
+  }
+
+  if(mediaRecorder.state !== "inactive"){
+    mediaRecorder.stop();
+  }
+}
+
+/* =========================================================
+   OPEN CHAT
+========================================================= */
+
+async function openChat(){
+  const panel = $("chatPanel");
+  const launcher = $("chatLaunch");
+
+  if(!panel){
+    console.error("POLARIS: chatPanel nuk u gjet.");
+    return;
+  }
+
+  panel.classList.add("open");
+  document.body.classList.add("chat-open");
+
+  if(launcher){
+    launcher.style.display = "none";
+  }
+
+  try{
+    anonymousName = anonymousName || await getAnonymousName();
+    await refreshIdentity();
+    await loadMessages();
+    await setupRealtime();
+  }catch(error){
+    console.error("POLARIS CHAT OPEN:", error);
+    showChatConnectionError("Chat-i u hap, por lidhja me serverin nuk është gati.");
+  }
+}
+
+/* =========================================================
+   CLOSE CHAT
+========================================================= */
+
+async function closeChat(){
+  const panel = $("chatPanel");
+  const launcher = $("chatLaunch");
+
+  if(panel){
+    panel.classList.remove("open");
+  }
+
+  document.body.classList.remove("chat-open");
+
+  if(launcher){
+    launcher.style.display = "flex";
+  }
+
+  const chatMenuEl = $("chatMenu");
+  if(chatMenuEl){
+    chatMenuEl.classList.remove("show");
+  }
+
+  const emojiPickerEl = $("emojiPicker");
+  if(emojiPickerEl){
+    emojiPickerEl.classList.remove("show");
+  }
+
+  closeMessageContext();
+  clearSelectedMedia();
+
+  if(isRecording){
+    stopRecording();
+  }
+
+ 
