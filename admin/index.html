@@ -1,1012 +1,857 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sq">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Trip Scape Albania — Zbulo Shqipërinë</title>
 
-<meta name="description" content="Trip Scape Albania — destinacione, fshatra, biznese, video dhe inspirim për udhëtim në Shqipëri.">
+<meta name="description"
+content="Trip Scape Albania — zbulo qytetet, fshatrat, plazhet, bizneset dhe eksperiencat më të bukura të Shqipërisë.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
---d:#0b3024;
---g:#176b4b;
---m:#91cbaa;
---c:#f5f2e9;
---i:#16372b;
---mut:#718078
+  --green:#103c2b;
+  --green2:#1c6949;
+  --cream:#f6f2e8;
+  --white:#fff;
+  --text:#173328;
+  --muted:#6d776f;
+  --gold:#c99a48;
+  --border:#e4dfd2;
+  --shadow:0 15px 40px rgba(0,0,0,.10);
 }
 
 *{
-box-sizing:border-box;
-margin:0
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth
+  scroll-behavior:smooth;
 }
 
 body{
-font-family:'DM Sans',sans-serif;
-color:var(--i);
-background:var(--c);
-line-height:1.6
+  font-family:"DM Sans",sans-serif;
+  background:var(--cream);
+  color:var(--text);
 }
 
 a{
-text-decoration:none;
-color:inherit
+  text-decoration:none;
+  color:inherit;
 }
 
 img{
-width:100%;
-display:block
+  width:100%;
+  display:block;
+  object-fit:cover;
 }
 
-.wrap{
-width:min(1180px,92%);
-margin:auto
+.container{
+  width:min(1200px,92%);
+  margin:auto;
 }
 
-.top{
-position:absolute;
-z-index:5;
-top:0;
-width:100%;
-color:#fff;
-padding:22px 0
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
 }
 
 .nav{
-display:flex;
-align-items:center;
-justify-content:space-between
+  min-height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
 }
 
 .logo{
-font-weight:800;
-letter-spacing:2px;
-font-size:20px
+  font-family:"Playfair Display",serif;
+  font-size:26px;
+  font-weight:700;
+  color:var(--green);
+  white-space:nowrap;
 }
 
-.logo small{
-display:block;
-font-size:9px;
-letter-spacing:5px;
-color:var(--m)
+.logo span{
+  color:var(--gold);
 }
 
-.links{
-display:flex;
-gap:25px;
-font-size:12px;
-font-weight:800
+nav{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex-wrap:wrap;
 }
 
-.links a:hover{
-color:var(--m)
+nav a{
+  font-size:14px;
+  font-weight:600;
+  color:#315045;
 }
 
-.navbtn{
-border:1px solid #ffffff70;
-padding:10px 16px;
-border-radius:999px;
-font-size:11px
+nav a:hover{
+  color:var(--green2);
 }
+
+.admin{
+  background:var(--green);
+  color:white!important;
+  padding:10px 16px;
+  border-radius:999px;
+}
+
+/* HERO */
 
 .hero{
-min-height:94vh;
-color:#fff;
-display:flex;
-align-items:center;
-background:
-linear-gradient(90deg,#06251ce8,#06251c88,#06251c1c),
-url('https://images.unsplash.com/photo-1733413278746-307c05dae2d9?auto=format&fit=crop&w=2200&q=85')
-center/cover
+  min-height:690px;
+  display:flex;
+  align-items:center;
+  color:white;
+
+  background:
+  linear-gradient(
+    rgba(7,31,23,.48),
+    rgba(7,31,23,.72)
+  ),
+
+  url("https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=2200&q=90")
+  center/cover;
 }
 
-.hero .wrap{
-padding:120px 0 80px
+.hero-content{
+  max-width:800px;
+  padding:100px 0;
 }
 
-.ey{
-color:var(--m);
-font-size:11px;
-letter-spacing:3px;
-font-weight:800;
-text-transform:uppercase;
-margin-bottom:18px
-}
-
-.hero h1,.h2{
-font-family:'Playfair Display',serif;
-font-weight:600;
-line-height:.95
+.eyebrow{
+  color:#efd18d;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:18px;
 }
 
 .hero h1{
-font-size:clamp(55px,9vw,110px);
-letter-spacing:-3px
-}
-
-.hero h1 span{
-color:var(--m);
-display:block
+  font-family:"Playfair Display",serif;
+  font-size:clamp(50px,8vw,90px);
+  line-height:1;
+  margin-bottom:25px;
 }
 
 .hero p{
-max-width:650px;
-font-size:18px;
-margin:25px 0;
-color:#edf5f0
+  font-size:19px;
+  max-width:680px;
+  color:rgba(255,255,255,.9);
+  margin-bottom:32px;
 }
 
 .buttons{
-display:flex;
-gap:12px;
-flex-wrap:wrap
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
 }
 
 .btn{
-padding:13px 21px;
-border-radius:999px;
-font-size:12px;
-font-weight:800
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 23px;
+  border-radius:999px;
+  font-weight:700;
 }
 
-.primary{
-background:#fff;
-color:var(--d)
+.btn-white{
+  background:white;
+  color:var(--green);
 }
 
-.green{
-background:var(--g);
-color:#fff
+.btn-border{
+  border:1px solid rgba(255,255,255,.65);
+  color:white;
 }
 
-.outline{
-border:1px solid #ffffff70;
-color:#fff
+/* SECTIONS */
+
+section{
+  padding:90px 0;
 }
 
-.sec{
-padding:95px 0
+.section-head{
+  margin-bottom:38px;
 }
 
-.white{
-background:#fff
+.section-head h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(35px,5vw,52px);
+  color:var(--green);
+  line-height:1.1;
+  margin-bottom:12px;
 }
 
-.deep{
-background:var(--d);
-color:#fff
+.section-head p{
+  color:var(--muted);
+  max-width:650px;
 }
 
-.head{
-display:flex;
-justify-content:space-between;
-align-items:end;
-gap:25px;
-margin-bottom:35px
+/* DESTINATIONS */
+
+.destination-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
 }
 
-.head h2{
-font-size:clamp(40px,5vw,66px)
+.destination{
+  position:relative;
+  min-height:390px;
+  border-radius:23px;
+  overflow:hidden;
+  color:white;
+  box-shadow:var(--shadow);
+  cursor:pointer;
+  transition:.3s;
 }
 
-.head p{
-max-width:500px;
-color:var(--mut)
+.destination:hover{
+  transform:translateY(-7px);
 }
 
-.deep .head p{
-color:#b9cbc2
+.destination img{
+  position:absolute;
+  inset:0;
+  height:100%;
+  transition:.5s;
 }
 
-.dest{
-display:grid;
-grid-template-columns:1.2fr .8fr .8fr;
-gap:16px
+.destination:hover img{
+  transform:scale(1.06);
 }
 
-.card{
-position:relative;
-min-height:430px;
-overflow:hidden;
-border-radius:26px;
-color:#fff
+.destination::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    transparent 25%,
+    rgba(0,0,0,.78)
+  );
 }
 
-.card.big{
-min-height:600px
+.destination-info{
+  position:absolute;
+  z-index:2;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:25px;
 }
 
-.card img{
-height:100%;
-object-fit:cover;
-transition:.6s
+.destination-info span{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:#f2d38e;
 }
 
-.card:hover img{
-transform:scale(1.06)
+.destination-info h3{
+  font-family:"Playfair Display",serif;
+  font-size:31px;
+  margin:5px 0;
 }
 
-.overlay{
-position:absolute;
-inset:auto 0 0;
-padding:28px;
-background:linear-gradient(transparent,#000d)
+.destination-info p{
+  color:rgba(255,255,255,.82);
+  font-size:14px;
 }
 
-.overlay h3{
-font:600 34px 'Playfair Display',serif
+.open{
+  display:inline-block;
+  margin-top:13px;
+  font-weight:700;
+  font-size:13px;
 }
 
-.overlay a,.arrow{
-font-size:12px;
-font-weight:800;
-color:var(--m)
-}
-
-.villages,.businesses{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px
-}
-
-.v,.biz{
-background:#fff;
-border-radius:20px;
-overflow:hidden;
-border:1px solid #dfe7e1
-}
-
-.v img{
-height:190px;
-object-fit:cover
-}
-
-.v div,.biz div{
-padding:18px
-}
-
-.v h3,.biz h3{
-font:600 24px 'Playfair Display',serif
-}
-
-.v p,.biz p{
-font-size:12px;
-color:var(--mut);
-margin:4px 0 10px
-}
-
-.split{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:55px;
-align-items:center
-}
-
-.split img{
-height:540px;
-object-fit:cover;
-border-radius:28px
-}
-
-.split h2{
-font-size:clamp(42px,5vw,68px)
-}
-
-.split p{
-color:var(--mut);
-margin:22px 0
-}
-
-.features{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin:25px 0
-}
+/* FEATURE */
 
 .feature{
-padding:15px;
-border:1px solid #dfe7e1;
-border-radius:15px
+  background:var(--green);
+  color:white;
 }
 
-.feature b{
-display:block;
-font-size:13px
+.feature-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:55px;
+  align-items:center;
 }
 
-.feature span{
-font-size:11px;
-color:var(--mut)
+.feature img{
+  height:510px;
+  border-radius:25px;
 }
 
-.businesses{
-grid-template-columns:repeat(3,1fr)
+.feature h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(38px,5vw,60px);
+  line-height:1.1;
+  margin-bottom:20px;
 }
 
-.biz img{
-height:220px;
-object-fit:cover
+.feature p{
+  color:rgba(255,255,255,.78);
+  margin-bottom:28px;
 }
 
-.pill{
-font-size:9px;
-font-weight:800;
-color:var(--g);
-background:#e7f3ec;
-padding:5px 9px;
-border-radius:999px
+/* VILLAGES */
+
+.village-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
 }
+
+.village{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  transition:.25s;
+}
+
+.village:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow);
+}
+
+.village img{
+  height:210px;
+}
+
+.village-info{
+  padding:18px;
+}
+
+.village-info h3{
+  font-family:"Playfair Display",serif;
+  font-size:23px;
+}
+
+.village-info p{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:5px;
+}
+
+/* BUSINESS */
+
+.business-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.business{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.business img{
+  height:230px;
+}
+
+.business-info{
+  padding:20px;
+}
+
+.business-info small{
+  color:var(--green2);
+  font-weight:700;
+  text-transform:uppercase;
+}
+
+.business-info h3{
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  margin:5px 0;
+}
+
+.business-info p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* NEWS */
 
 .news{
-display:grid;
-grid-template-columns:1.2fr .8fr .8fr;
-gap:16px
+  background:#eee9dd;
 }
 
-.n{
-background:#fff;
-border-radius:22px;
-overflow:hidden
+.news-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
-.n img{
-height:220px;
-object-fit:cover
+.news-card{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
 }
 
-.n:first-child img{
-height:320px
+.news-card img{
+  height:210px;
 }
 
-.n div{
-padding:18px
+.news-body{
+  padding:20px;
 }
 
-.n h3{
-font:600 25px 'Playfair Display',serif;
-line-height:1.1;
-margin:7px 0
+.news-body small{
+  color:var(--green2);
+  font-weight:700;
 }
 
-.n p{
-font-size:12px;
-color:var(--mut)
+.news-body h3{
+  margin:7px 0;
+  font-size:20px;
 }
 
-.video{
-display:grid;
-grid-template-columns:1.3fr .7fr;
-gap:25px;
-align-items:center
+.news-body p{
+  color:var(--muted);
+  font-size:14px;
 }
 
-.frame{
-aspect-ratio:16/9;
-background:#000;
-border-radius:25px;
-overflow:hidden
-}
-
-.frame iframe{
-width:100%;
-height:100%;
-border:0
-}
-
-.video h2{
-font-size:52px
-}
-
-.video p{
-color:#b9cbc2;
-margin:20px 0
-}
+/* GALLERY */
 
 .gallery{
-columns:4 210px;
-column-gap:13px
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
 }
 
 .gallery img{
-border-radius:17px;
-margin:0 0 13px;
-cursor:pointer
+  height:240px;
+  border-radius:15px;
 }
+
+/* CTA */
 
 .cta{
-padding:80px 0
+  text-align:center;
+  background:#e7ddc5;
 }
 
-.ctabox{
-padding:55px;
-border-radius:30px;
-background:linear-gradient(120deg,#103c2c,#2d805e);
-color:#fff;
-display:flex;
-justify-content:space-between;
-gap:30px;
-align-items:center
+.cta h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(38px,5vw,55px);
+  color:var(--green);
 }
 
-.ctabox h2{
-font-size:clamp(40px,5vw,64px)
+.cta p{
+  max-width:650px;
+  margin:12px auto 25px;
+  color:var(--muted);
 }
+
+/* FOOTER */
 
 footer{
-background:#082218;
-color:#b9cbc2;
-padding:55px 0 20px
+  background:#092a1e;
+  color:white;
+  padding:60px 0 25px;
 }
 
-.foot{
-display:grid;
-grid-template-columns:1.5fr 1fr 1fr 1fr;
-gap:30px
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+  margin-bottom:40px;
 }
 
-.foot h3{
-color:#fff;
-margin-bottom:10px
+footer h3{
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  margin-bottom:14px;
 }
 
-.foot a{
-display:block;
-font-size:12px;
-margin:6px 0
+footer p,
+footer a{
+  color:rgba(255,255,255,.7);
+  font-size:14px;
 }
 
-.copy{
-border-top:1px solid #ffffff18;
-margin-top:30px;
-padding-top:18px;
-font-size:11px;
-display:flex;
-justify-content:space-between
+footer a{
+  display:block;
+  margin-bottom:9px;
 }
 
-.menu{
-display:none;
-background:none;
-border:1px solid #ffffff66;
-color:#fff;
-border-radius:999px;
-padding:8px 12px
+footer a:hover{
+  color:white;
 }
 
-.light{
-position:fixed;
-inset:0;
-background:#000e;
-display:none;
-align-items:center;
-justify-content:center;
-z-index:50;
-padding:20px
+.copyright{
+  border-top:1px solid rgba(255,255,255,.12);
+  padding-top:20px;
+  color:rgba(255,255,255,.5);
+  font-size:13px;
 }
 
-.light.open{
-display:flex
-}
-
-.light img{
-max-width:95%;
-max-height:90%;
-width:auto;
-border-radius:15px
-}
-
-.close{
-position:absolute;
-right:20px;
-top:10px;
-color:#fff;
-background:none;
-border:0;
-font-size:42px
-}
+/* MOBILE */
 
 @media(max-width:900px){
 
-.links,.navbtn{
-display:none
-}
+  .nav{
+    flex-direction:column;
+    align-items:flex-start;
+    padding:15px 0;
+  }
 
-.menu{
-display:block
-}
+  nav{
+    gap:12px;
+  }
 
-.links.open{
-display:flex;
-position:absolute;
-top:70px;
-left:4%;
-right:4%;
-background:var(--d);
-padding:18px;
-border-radius:16px;
-flex-direction:column
-}
+  .destination-grid{
+    grid-template-columns:1fr 1fr;
+  }
 
-.dest,.news{
-grid-template-columns:1fr 1fr
-}
+  .village-grid{
+    grid-template-columns:1fr 1fr;
+  }
 
-.card.big{
-min-height:450px
-}
+  .business-grid{
+    grid-template-columns:1fr 1fr;
+  }
 
-.villages{
-grid-template-columns:1fr 1fr
-}
+  .news-grid{
+    grid-template-columns:1fr 1fr;
+  }
 
-.split,.video{
-grid-template-columns:1fr
-}
+  .gallery{
+    grid-template-columns:1fr 1fr;
+  }
 
-.businesses{
-grid-template-columns:1fr 1fr
-}
+  .feature-grid{
+    grid-template-columns:1fr;
+  }
 
-.foot{
-grid-template-columns:1fr 1fr
-}
-
-.ctabox{
-flex-direction:column;
-align-items:flex-start
-}
-
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
 }
 
 @media(max-width:600px){
 
-.sec{
-padding:70px 0
-}
+  .hero{
+    min-height:620px;
+  }
 
-.hero h1{
-font-size:58px
-}
+  section{
+    padding:65px 0;
+  }
 
-.hero p{
-font-size:16px
-}
+  .destination-grid,
+  .village-grid,
+  .business-grid,
+  .news-grid{
+    grid-template-columns:1fr;
+  }
 
-.head{
-display:block
-}
+  .gallery{
+    grid-template-columns:1fr 1fr;
+  }
 
-.head p{
-margin-top:14px
-}
+  .gallery img{
+    height:170px;
+  }
 
-.dest,.news,.villages,.businesses{
-grid-template-columns:1fr
-}
-
-.card,.card.big{
-min-height:380px
-}
-
-.features{
-grid-template-columns:1fr
-}
-
-.split img{
-height:400px
-}
-
-.foot{
-grid-template-columns:1fr
-}
-
-.copy{
-display:block
-}
-
-.copy span{
-display:block;
-margin-top:7px
-}
-
-.ctabox{
-padding:32px
-}
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
 
 }
+
 </style>
 </head>
 
 <body>
 
-<header class="top">
+<!-- ================= HEADER ================= -->
 
-<div class="wrap nav">
+<header>
 
-<a class="logo" href="#home">
-TRIP SCAPE
-<small>ALBANIA</small>
+<div class="container nav">
+
+<a href="/" class="logo">
+Trip Scape <span>Albania</span>
 </a>
 
-<nav class="links" id="links">
+<nav>
 
-<a href="#destinacione">Destinacione</a>
+<a href="#qytete">Qytete</a>
 <a href="#fshatra">Fshatra</a>
 <a href="#biznese">Biznese</a>
 <a href="#lajme">Lajme</a>
-<a href="#video">Video</a>
 <a href="#galeri">Galeri</a>
+<a href="#kontakt">Kontakt</a>
 
 <!-- ADMIN -->
-<a href="/admin/">Admin</a>
+<a href="/admin/" class="admin">🔐 Admin</a>
 
 </nav>
-
-<a class="navbtn" href="#promovo">
-Promovo biznesin
-</a>
-
-<button class="menu" id="menu">
-Menu
-</button>
 
 </div>
 
 </header>
 
-<main id="home">
+
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
-<div class="wrap">
+<div class="container">
 
-<div class="ey">
-🇦🇱 Discover Albania
+<div class="hero-content">
+
+<div class="eyebrow">
+Discover Albania
 </div>
 
 <h1>
-Trip Scape
-<span>Albania</span>
+Trip Scape Albania
 </h1>
 
 <p>
-Një vend për të zbuluar Shqipërinë përmes destinacioneve,
-fshatrave, natyrës, kulturës, ushqimit dhe eksperiencave lokale.
+Zbulo Shqipërinë në një mënyrë krejt tjetër.
+Qytete historike, fshatra malore, plazhe,
+restorante, hotele, guida dhe eksperienca lokale.
 </p>
 
 <div class="buttons">
 
-<a class="btn primary" href="#destinacione">
-Zbulo Shqipërinë
+<a href="#qytete" class="btn btn-white">
+Eksploro destinacionet
 </a>
 
-<a class="btn outline" href="#fshatra">
-Eksploro fshatrat
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="sec white" id="destinacione">
-
-<div class="wrap">
-
-<div class="head">
-
-<div>
-
-<div class="ey">
-Explore
-</div>
-
-<h2 class="h2">
-Shqipëria<br>
-në një udhëtim.
-</h2>
-
-</div>
-
-<p>
-Qytete historike, male të egra, ujëra të kristalta
-dhe vende të vogla ku mikpritja është pjesë e peizazhit.
-</p>
-
-</div>
-
-<div class="dest" id="dest"></div>
-
-</div>
-
-</section>
-
-<section class="sec" id="fshatra">
-
-<div class="wrap">
-
-<div class="head">
-
-<div>
-
-<div class="ey">
-Fshatra turistikë
-</div>
-
-<h2 class="h2">
-Shko pak më<br>
-larg turmës.
-</h2>
-
-</div>
-
-<p>
-Fshatra për hiking, qetësi, ushqim tradicional
-dhe netë mes maleve.
-</p>
-
-</div>
-
-<div class="villages" id="villages"></div>
-
-</div>
-
-</section>
-
-<section class="sec white">
-
-<div class="wrap split">
-
-<img
-src="https://images.unsplash.com/photo-1758142028854-44cf437c4681?auto=format&fit=crop&w=1400&q=85"
-alt="Bregdet shqiptar"
-loading="lazy"
->
-
-<div>
-
-<div class="ey">
-From mountains to sea
-</div>
-
-<h2 class="h2">
-Dy botë.<br>
-Një Shqipëri.
-</h2>
-
-<p>
-Trip Scape lidh aventurën e Alpeve me qetësinë e jugut,
-qytetet historike me jetën lokale dhe udhëtarin me bizneset
-që e bëjnë një eksperiencë të paharrueshme.
-</p>
-
-<div class="features">
-
-<div class="feature">
-<b>🏔️ Aventurë</b>
-<span>Hiking, kanione, lumenj</span>
-</div>
-
-<div class="feature">
-<b>🌊 Bregdet</b>
-<span>Plazhe, ishuj, gjire</span>
-</div>
-
-<div class="feature">
-<b>🍽️ Shije lokale</b>
-<span>Restorante & agroturizëm</span>
-</div>
-
-<div class="feature">
-<b>🏛️ Kulturë</b>
-<span>Qytete & trashëgimi</span>
-</div>
-
-</div>
-
-<a class="btn green" href="#biznese">
-Gjej eksperiencën →
+<a href="#biznese" class="btn btn-border">
+Gjej biznese
 </a>
 
 </div>
 
 </div>
 
-</section>
-
-<section class="sec deep" id="biznese">
-
-<div class="wrap">
-
-<div class="head">
-
-<div>
-
-<div class="ey">
-Local businesses
-</div>
-
-<h2 class="h2">
-Mbështet bizneset<br>
-lokale.
-</h2>
-
-</div>
-
-<p>
-Hotele, bujtina, restorante, guida dhe aktivitete —
-të organizuara që udhëtari t'i gjejë më lehtë.
-</p>
-
-</div>
-
-<div class="businesses" id="businesses"></div>
-
 </div>
 
 </section>
 
-<section class="sec" id="lajme">
 
-<div class="wrap">
+<!-- ================= QYTETE ================= -->
 
-<div class="head">
+<section id="qytete">
 
-<div>
+<div class="container">
 
-<div class="ey">
-What's happening
-</div>
+<div class="section-head">
 
-<h2 class="h2">
-Lajme &<br>
-inspirim.
-</h2>
-
-</div>
-
-<a
-class="arrow"
-href="https://akt.gov.al/en/NEWS/"
-target="_blank"
-rel="noopener"
->
-Shiko burimin zyrtar →
-</a>
-
-</div>
-
-<div class="news" id="news"></div>
-
-</div>
-
-</section>
-
-<section class="sec deep" id="video">
-
-<div class="wrap video">
-
-<div class="frame">
-
-<iframe
-src="https://www.youtube.com/embed?listType=search&list=Albania%20travel"
-title="Albania travel"
-loading="lazy"
-allowfullscreen>
-</iframe>
-
-</div>
-
-<div>
-
-<div class="ey">
-Watch Albania
-</div>
-
-<h2 class="h2">
-Shihe.<br>
-Pastaj nisu.
-</h2>
-
-<p>
-Video udhëtimesh, natyrë dhe vende që duhen parë
-me sytë e tu.
-</p>
-
-<a
-class="btn primary"
-href="https://www.youtube.com/results?search_query=Albania+travel"
-target="_blank"
-rel="noopener"
->
-Më shumë video →
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="sec white" id="galeri">
-
-<div class="wrap">
-
-<div class="head">
-
-<div>
-
-<div class="ey">
-Real places
-</div>
-
-<h2 class="h2">
-Galeria e<br>
-Shqipërisë.
-</h2>
-
-</div>
-
-<p>
-Fotografi të jashtme nga Unsplash.
-Kliko një foto për ta parë më të madhe.
-</p>
-
-</div>
-
-<div class="gallery" id="gallery"></div>
-
-</div>
-
-</section>
-
-<section class="cta" id="promovo">
-
-<div class="wrap">
-
-<div class="ctabox">
-
-<div>
-
-<div class="ey">
-For local businesses
+<div class="eyebrow">
+Qytetet e Shqipërisë
 </div>
 
 <h2>
-Ke një biznes<br>
-turistik?
+Zgjidh qytetin që dëshiron të eksplorosh
 </h2>
 
-</div>
-
-<div>
-
-<p style="max-width:430px;margin-bottom:18px;color:#dcebe4">
-Së shpejti mund të shtosh hotelin, restorantin,
-bujtinën ose eksperiencën tënde.
+<p>
+Kliko mbi një qytet për të hapur faqen e tij të veçantë.
+Aty do të ketë foto, vende për të vizituar, hotele,
+restorante, biznese, aktivitete dhe shumë më tepër.
 </p>
 
-<a
-class="btn primary"
-href="mailto:tripscape.al@gmail.com?subject=Promovo biznesin në Trip Scape Albania"
->
-Na kontakto →
-</a>
+</div>
+
+
+<div class="destination-grid">
+
+
+<!-- BERAT -->
+
+<a class="destination" href="/destinacione/berat.html">
+
+<img
+src="https://images.unsplash.com/photo-1604931677323-8f1f9a4f2d8e?auto=format&fit=crop&w=1200&q=90"
+alt="Berat">
+
+<div class="destination-info">
+
+<span>Qytet historik</span>
+
+<h3>Berat</h3>
+
+<p>
+Qyteti i një mbi një dritareve.
+</p>
+
+<div class="open">
+Hap faqen →
+</div>
 
 </div>
+
+</a>
+
+
+<!-- GJIROKASTER -->
+
+<a class="destination" href="/destinacione/gjirokaster.html">
+
+<img
+src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=1200&q=90"
+alt="Gjirokastër">
+
+<div class="destination-info">
+
+<span>Qytet historik</span>
+
+<h3>Gjirokastër</h3>
+
+<p>
+Qyteti i gurtë i Shqipërisë.
+</p>
+
+<div class="open">
+Hap faqen →
+</div>
+
+</div>
+
+</a>
+
+
+<!-- SHKODER -->
+
+<a class="destination" href="/destinacione/shkoder.html">
+
+<img
+src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=1200&q=90"
+alt="Shkodër">
+
+<div class="destination-info">
+
+<span>Veriu</span>
+
+<h3>Shkodër</h3>
+
+<p>
+Histori, kulturë dhe natyrë.
+</p>
+
+<div class="open">
+Hap faqen →
+</div>
+
+</div>
+
+</a>
+
+
+<!-- TIRANE -->
+
+<a class="destination" href="/destinacione/tirane.html">
+
+<img
+src="https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=1200&q=90"
+alt="Tiranë">
+
+<div class="destination-info">
+
+<span>Kryeqyteti</span>
+
+<h3>Tiranë</h3>
+
+<p>
+Qendra moderne e Shqipërisë.
+</p>
+
+<div class="open">
+Hap faqen →
+</div>
+
+</div>
+
+</a>
+
+
+<!-- VLORA -->
+
+<a class="destination" href="/destinacione/vlore.html">
+
+<img
+src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1200&q=90"
+alt="Vlorë">
+
+<div class="destination-info">
+
+<span>Riviera</span>
+
+<h3>Vlorë</h3>
+
+<p>
+Det, histori dhe natyrë.
+</p>
+
+<div class="open">
+Hap faqen →
+</div>
+
+</div>
+
+</a>
+
+
+<!-- SARANDA -->
+
+<a class="destination" href="/destinacione/sarande.html">
+
+<img
+src="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=1200&q=90"
+alt="Sarandë">
+
+<div class="destination-info">
+
+<span>Riviera</span>
+
+<h3>Sarandë</h3>
+
+<p>
+Bregdeti i Jonit.
+</p>
+
+<div class="open">
+Hap faqen →
+</div>
+
+</div>
+
+</a>
+
 
 </div>
 
@@ -1014,335 +859,480 @@ Na kontakto →
 
 </section>
 
-</main>
 
-<footer>
+<!-- ================= FEATURE ================= -->
 
-<div class="wrap">
+<section class="feature">
 
-<div class="foot">
+<div class="container feature-grid">
+
+<img
+src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=90"
+alt="Malet e Shqipërisë">
 
 <div>
 
-<a class="logo" href="#home" style="color:#fff">
-TRIP SCAPE
-<small>ALBANIA</small>
+<div class="eyebrow">
+Nga veriu në jug
+</div>
+
+<h2>
+Një vend i vogël. Qindra eksperienca.
+</h2>
+
+<p>
+Nga Alpet Shqiptare deri në Rivierën e Jonit,
+Trip Scape Albania do të të ndihmojë të gjesh
+vendin, biznesin dhe eksperiencën që kërkon.
+</p>
+
+<a href="#fshatra" class="btn btn-white">
+Zbulo fshatrat
 </a>
 
-<p style="margin-top:14px">
-Discover. Explore. Experience Albania.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FSHATRAT ================= -->
+
+<section id="fshatra">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="eyebrow">
+Fshatra
+</div>
+
+<h2>
+Zbulo Shqipërinë autentike
+</h2>
+
+<p>
+Kliko mbi fshatin dhe hap faqen e tij të veçantë.
 </p>
 
 </div>
 
-<div>
 
-<h3>Eksploro</h3>
+<div class="village-grid">
 
-<a href="#destinacione">Destinacione</a>
-<a href="#fshatra">Fshatra</a>
-<a href="#galeri">Galeri</a>
 
-</div>
+<a href="/destinacione/theth.html" class="village">
 
-<div>
+<img
+src="https://images.unsplash.com/photo-1598791318878-10e76d178023?auto=format&fit=crop&w=1000&q=90"
+alt="Theth">
 
-<h3>Platforma</h3>
+<div class="village-info">
 
-<a href="#biznese">Biznese</a>
-<a href="#lajme">Lajme</a>
-<a href="#video">Video</a>
+<h3>Theth</h3>
 
-<!-- ADMIN -->
-<a href="/admin/">
-🔐 Admin
-</a>
+<p>
+Alpet Shqiptare · Hiking · Bujtina
+</p>
 
 </div>
 
-<div>
-
-<h3>Kontakt</h3>
-
-<a href="mailto:tripscape.al@gmail.com">
-tripscape.al@gmail.com
 </a>
 
-<a href="#promovo">
+
+<a href="/destinacione/valbone.html" class="village">
+
+<img
+src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=90"
+alt="Valbonë">
+
+<div class="village-info">
+
+<h3>Valbonë</h3>
+
+<p>
+Male · Natyrë · Adventure
+</p>
+
+</div>
+
+</a>
+
+
+<a href="/destinacione/dardhe.html" class="village">
+
+<img
+src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1000&q=90"
+alt="Dardhë">
+
+<div class="village-info">
+
+<h3>Dardhë</h3>
+
+<p>
+Korçë · Traditë · Natyrë
+</p>
+
+</div>
+
+</a>
+
+
+<a href="/destinacione/voskopoje.html" class="village">
+
+<img
+src="https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=1000&q=90"
+alt="Voskopojë">
+
+<div class="village-info">
+
+<h3>Voskopojë</h3>
+
+<p>
+Histori · Kulturë · Agroturizëm
+</p>
+
+</div>
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= BIZNESE ================= -->
+
+<section id="biznese">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="eyebrow">
+Mbështet bizneset lokale
+</div>
+
+<h2>
+Hotele, restorante dhe eksperienca
+</h2>
+
+<p>
+Në çdo faqe destinacioni do të shfaqen bizneset
+që ndodhen në atë qytet ose fshat.
+</p>
+
+</div>
+
+
+<div class="business-grid">
+
+
+<div class="business">
+
+<img
+src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1000&q=90"
+alt="Hotel">
+
+<div class="business-info">
+
+<small>Hotel</small>
+
+<h3>Hotele & Bujtina</h3>
+
+<p>
+Gjej vendin e duhur për të qëndruar.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="business">
+
+<img
+src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=90"
+alt="Restorant">
+
+<div class="business-info">
+
+<small>Ushqim</small>
+
+<h3>Restorante</h3>
+
+<p>
+Shijo kuzhinën tradicionale shqiptare.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="business">
+
+<img
+src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1000&q=90"
+alt="Eksperienca">
+
+<div class="business-info">
+
+<small>Eksperienca</small>
+
+<h3>Guida & Aktivitete</h3>
+
+<p>
+Eksploro Shqipërinë me njerëz lokalë.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= LAJME ================= -->
+
+<section class="news" id="lajme">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="eyebrow">
+Lajme
+</div>
+
+<h2>
+Lajmet e turizmit
+</h2>
+
+<p>
+Një seksion që më vonë do të lidhet me sistemin
+e Admin-it dhe do të mund të menaxhohet nga paneli.
+</p>
+
+</div>
+
+
+<div class="news-grid">
+
+
+<article class="news-card">
+
+<img
+src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=90"
+alt="Turizëm në Shqipëri">
+
+<div class="news-body">
+
+<small>TURIZËM</small>
+
+<h3>
+Zbulo destinacionet e Shqipërisë
+</h3>
+
+<p>
+Ide dhe informacione për udhëtimin tuaj.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="news-card">
+
+<img
+src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=90"
+alt="Natyrë">
+
+<div class="news-body">
+
+<small>NATYRË</small>
+
+<h3>
+Nga Alpet deri në det
+</h3>
+
+<p>
+Eksperienca të ndryshme në çdo cep të vendit.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="news-card">
+
+<img
+src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1000&q=90"
+alt="Shqipëri">
+
+<div class="news-body">
+
+<small>UDHËTIME</small>
+
+<h3>
+Planifiko udhëtimin tënd
+</h3>
+
+<p>
+Gjej qytetin dhe eksperiencën që kërkon.
+</p>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= GALERI ================= -->
+
+<section id="galeri">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="eyebrow">
+Galeria
+</div>
+
+<h2>
+Pamje nga Shqipëria
+</h2>
+
+</div>
+
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1598791318878-10e76d178023?auto=format&fit=crop&w=1000&q=90" alt="Theth">
+
+<img src="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=1000&q=90" alt="Riviera">
+
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=90" alt="Male">
+
+<img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1000&q=90" alt="Shqipëri">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta" id="kontakt">
+
+<div class="container">
+
+<h2>
+Ke një biznes turistik?
+</h2>
+
+<p>
+Bëhu pjesë e Trip Scape Albania dhe prezanto
+hotel-in, restorantin, guidën ose eksperiencën tënde.
+</p>
+
+<a
+href="mailto:info@tripscape.al"
+class="btn"
+style="background:#103c2b;color:white;">
 Promovo biznesin
 </a>
 
 </div>
 
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div>
+
+<h3>
+Trip Scape Albania
+</h3>
+
+<p>
+Platforma shqiptare për të zbuluar destinacionet,
+bizneset dhe eksperiencat më të bukura të vendit.
+</p>
+
 </div>
 
-<div class="copy">
 
-<span>
-© 2026 Trip Scape Albania
-</span>
+<div>
 
-<span>
-Made for Albania 🇦🇱
-</span>
+<h3>
+Eksploro
+</h3>
+
+<a href="#qytete">Qytete</a>
+<a href="#fshatra">Fshatra</a>
+<a href="#biznese">Biznese</a>
+<a href="#galeri">Galeri</a>
+
+</div>
+
+
+<div>
+
+<h3>
+Platforma
+</h3>
+
+<a href="#lajme">Lajme</a>
+<a href="#kontakt">Kontakt</a>
+
+<!-- ADMIN -->
+<a href="/admin/">🔐 Admin</a>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 Trip Scape Albania — Të gjitha të drejtat e rezervuara.
 
 </div>
 
 </div>
 
 </footer>
-
-<div class="light" id="light">
-
-<button class="close" onclick="closeLight()">
-×
-</button>
-
-<img id="big" alt="">
-
-</div>
-
-<script>
-
-const U=id=>
-`https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=82`;
-
-const D=[
-
-['Theth','ALPET SHQIPTARE','photo-1733413278746-307c05dae2d9','big'],
-
-['Sarandë','RIVIERA','photo-1758142028854-44cf437c4681',''],
-
-['Berat','QYTET HISTORIK','photo-1500534623283-312aade485b7',''],
-
-['Gjirokastër','TRASHËGIMI','photo-1526481280695-3c687fd643ed',''],
-
-['Shkodër','VERIU','photo-1500534623283-312aade485b7',''],
-
-['Vlorë','BREGDETI','photo-1507525428034-b723cf961d3e','']
-
-];
-
-const V=[
-
-['Theth','Alpet & hiking','photo-1733413278746-307c05dae2d9'],
-
-['Valbonë','Luginë & male','photo-1500534623283-312aade485b7'],
-
-['Dardhë','Korçë & traditë','photo-1470770841072-f978cf4d019e'],
-
-['Razëm','Pyje & qetësi','photo-1441974231531-c6227db76b6e'],
-
-['Lëpushë','Natyrë alpine','photo-1500534623283-312aade485b7'],
-
-['Shishtavec','Male & kultura','photo-1500534314209-a25ddb2bd429'],
-
-['Boboshticë','Gurë & kuzhinë','photo-1527631746610-bca00a040d60'],
-
-['Lukovë','Jug & det','photo-1507525428034-b723cf961d3e']
-
-];
-
-const B=[
-
-['Bujtina & Hotele',
-'Qëndrime autentike pranë destinacioneve.',
-'photo-1566073771259-6a8506099945'],
-
-['Restorante',
-'Shije shqiptare dhe produkte të zonës.',
-'photo-1517248135467-4c7edcad34c4'],
-
-['Eksperienca',
-'Hiking, guida, ture me varkë dhe aventura.',
-'photo-1464822759023-fed622ff2c3b']
-
-];
-
-const N=[
-
-['Turizmi në Shqipëri',
-'Ide për destinacione dhe eksperienca të reja.',
-'photo-1530789253388-582c481c54b0'],
-
-['Alpet shqiptare',
-'Theth, Valbonë dhe rrugët e maleve.',
-'photo-1500534623283-312aade485b7'],
-
-['Riviera',
-'Gjire, plazhe dhe qytete bregdetare.',
-'photo-1507525428034-b723cf961d3e']
-
-];
-
-const G=[
-
-'photo-1733413278746-307c05dae2d9',
-
-'photo-1758142028854-44cf437c4681',
-
-'photo-1500534623283-312aade485b7',
-
-'photo-1526481280695-3c687fd643ed',
-
-'photo-1470770841072-f978cf4d019e',
-
-'photo-1441974231531-c6227db76b6e',
-
-'photo-1507525428034-b723cf961d3e',
-
-'photo-1500534314209-a25ddb2bd429',
-
-'photo-1527631746610-bca00a040d60',
-
-'photo-1517248135467-4c7edcad34c4',
-
-'photo-1566073771259-6a8506099945',
-
-'photo-1464822759023-fed622ff2c3b'
-
-];
-
-dest.innerHTML=D.map(x=>`
-
-<article class="card ${x[3]}">
-
-<img
-src="${U(x[2])}"
-alt="${x[0]}, Albania"
-loading="lazy"
->
-
-<div class="overlay">
-
-<small>${x[1]}</small>
-
-<h3>${x[0]}</h3>
-
-<a href="#fshatra">
-Eksploro →
-</a>
-
-</div>
-
-</article>
-
-`).join('');
-
-villages.innerHTML=V.map(x=>`
-
-<article class="v">
-
-<img
-src="${U(x[2])}"
-alt="${x[0]}, Albania"
-loading="lazy"
->
-
-<div>
-
-<h3>${x[0]}</h3>
-
-<p>${x[1]}</p>
-
-<a class="arrow" href="#promovo">
-Shiko më shumë →
-</a>
-
-</div>
-
-</article>
-
-`).join('');
-
-businesses.innerHTML=B.map(x=>`
-
-<article class="biz">
-
-<img
-src="${U(x[2])}"
-alt="${x[0]}"
-loading="lazy"
->
-
-<div>
-
-<span class="pill">
-LOKALE
-</span>
-
-<h3>${x[0]}</h3>
-
-<p>${x[1]}</p>
-
-<a class="arrow" href="#promovo">
-Zbulo kategorinë →
-</a>
-
-</div>
-
-</article>
-
-`).join('');
-
-news.innerHTML=N.map(x=>`
-
-<article class="n">
-
-<img
-src="${U(x[2])}"
-alt="${x[0]}"
-loading="lazy"
->
-
-<div>
-
-<span class="pill">
-INSPIRIM
-</span>
-
-<h3>${x[0]}</h3>
-
-<p>${x[1]}</p>
-
-</div>
-
-</article>
-
-`).join('');
-
-gallery.innerHTML=G.map(x=>`
-
-<img
-src="${U(x)}"
-alt="Albania"
-loading="lazy"
-onclick="openLight(this.src)"
->
-
-`).join('');
-
-function openLight(s){
-
-big.src=s;
-
-light.classList.add('open');
-
-}
-
-function closeLight(){
-
-light.classList.remove('open');
-
-}
-
-menu.onclick=()=>{
-
-links.classList.toggle('open');
-
-};
-
-</script>
 
 </body>
   </html>
