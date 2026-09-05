@@ -1,1 +1,179 @@
+<!doctype html>
+<html lang="sq">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Trip Scape Albania — Admin</title>
 
+  <style>
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      background:#0b3024;
+      font-family:Arial,sans-serif;
+      color:#16372b;
+    }
+
+    .box{
+      width:min(420px,90%);
+      background:white;
+      padding:30px;
+      border-radius:22px;
+      box-shadow:0 20px 50px #0005;
+    }
+
+    h1{
+      margin:0 0 8px;
+      color:#0b3024;
+    }
+
+    p{
+      color:#666;
+      margin-bottom:25px;
+    }
+
+    input,button{
+      width:100%;
+      padding:14px;
+      margin:7px 0;
+      border-radius:10px;
+      font-size:16px;
+    }
+
+    input{
+      border:1px solid #ddd;
+    }
+
+    button{
+      border:0;
+      background:#176b4b;
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#0e573c;
+    }
+
+    .msg{
+      margin-top:12px;
+      font-size:14px;
+      text-align:center;
+    }
+
+    .back{
+      display:block;
+      margin-top:18px;
+      text-align:center;
+      color:#176b4b;
+      text-decoration:none;
+      font-size:14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>Trip Scape Admin</h1>
+
+    <p>
+      Hyr në panelin e administrimit të Trip Scape Albania.
+    </p>
+
+    <input
+      id="email"
+      type="email"
+      placeholder="Email"
+      autocomplete="email"
+    >
+
+    <input
+      id="password"
+      type="password"
+      placeholder="Fjalëkalimi"
+      autocomplete="current-password"
+    >
+
+    <button id="login">
+      Hyr në Admin
+    </button>
+
+    <div class="msg" id="msg"></div>
+
+    <a class="back" href="../">
+      ← Kthehu te Trip Scape Albania
+    </a>
+  </div>
+
+  <script type="module">
+    import { createClient }
+      from "https://esm.sh/@supabase/supabase-js@2";
+
+    const supabase = createClient(
+      "https://yozldiroahxinwpnmfqk.supabase.co",
+      "sb_publishable_D_uzBcGaGAnihoFeB0WwBQ_RGy0AZE-"
+    );
+
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const login = document.getElementById("login");
+    const msg = document.getElementById("msg");
+
+    login.addEventListener("click", async () => {
+
+      msg.textContent = "Po kontrolloj...";
+      login.disabled = true;
+
+      const { data, error } =
+        await supabase.auth.signInWithPassword({
+          email: email.value.trim(),
+          password: password.value
+        });
+
+      if (error) {
+        msg.textContent = error.message;
+        login.disabled = false;
+        return;
+      }
+
+      const { data: profile, error: profileError } =
+        await supabase
+          .from("profiles")
+          .select("role")
+          .eq("id", data.user.id)
+          .maybeSingle();
+
+      if (
+        profileError ||
+        !profile ||
+        !["admin", "editor"].includes(profile.role)
+      ) {
+        await supabase.auth.signOut();
+
+        msg.textContent =
+          "Kjo llogari nuk ka leje Admin.";
+
+        login.disabled = false;
+        return;
+      }
+
+      msg.textContent = "Hyrja u krye!";
+
+      window.location.href = "dashboard.html";
+    });
+
+    password.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        login.click();
+      }
+    });
+  </script>
+
+</body>
+</html>
